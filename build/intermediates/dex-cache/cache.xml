@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/andreas/Documents/Skole/2. semester/Softwareprojekt/Projekt/Cork/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="29.0.3"
+        sha1="89856c63fe0d1f61ec84187e584bfdb90079956e">
+        <dex dex="/Users/andreas/Documents/Skole/2. semester/Softwareprojekt/Projekt/Cork/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_4d211fe8993caebc098d36cf903167dc3f017e26/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/andreas/Documents/Skole/2. semester/Softwareprojekt/Projekt/Cork/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="29.0.3"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/andreas/Documents/Skole/2. semester/Softwareprojekt/Projekt/Cork/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_44cdb6e51e0bd5cea1f422be8b7f52f358cd2052/classes.dex" />
+    </item>
+
+</items>
