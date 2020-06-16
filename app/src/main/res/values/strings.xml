@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Cork</string>
+    <string name="app_name">CorkNFork</string>
     <string name="title_home">Home</string>
     <string name="title_settings">Settings</string>
     <string name="title_user">User</string>
@@ -7,6 +7,8 @@
     <string name="title_find">Find a:</string>
     <string name="title_meal">Meal</string>
     <string name="title_wine">Wine</string>
+
+    <string name="username">Username</string>
 
     <string name="title_mealtypeselect">What are you eating?</string>
     <string name="title_winetypeselect">What are you drinking?</string>
