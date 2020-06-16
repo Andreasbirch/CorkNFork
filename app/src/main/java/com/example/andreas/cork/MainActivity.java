@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new SettingsFragment();
                             break;
                         case R.id.navigation_user:
-                            selectedFragment = new UserFragment();
+                            selectedFragment = new LoginFragment();
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

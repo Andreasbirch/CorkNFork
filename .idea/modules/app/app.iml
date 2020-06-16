@@ -107,5 +107,6 @@
     <orderEntry type="library" exported="" name="Gradle: com.android.support:design:26.0.0-alpha1@aar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:recyclerview-v7:26.0.0-alpha1@aar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:transition:26.0.0-alpha1@aar" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: android-android-26" level="project" />
   </component>
 </module>

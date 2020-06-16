@@ -13,22 +13,20 @@ import android.widget.Button;
  * Created by andreas on 11/06/2020.
  */
 
-public class UserFragment extends Fragment {
+public class LoginFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        View view = inflater.inflate(R.layout.fragment_user, container, false);
+        Button signUp = (Button) view.findViewById(R.id.signUp);
 
-        Button logOut = (Button) view.findViewById(R.id.logoutButton);
-        Button myFavorites = (Button) view.findViewById(R.id.myFavorites);
-
-        logOut.setOnClickListener(new View.OnClickListener() {
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
+                fragmentTransaction.replace(R.id.fragment_container, new SignUpFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }
@@ -36,5 +34,7 @@ public class UserFragment extends Fragment {
 
 
         return view;
+
     }
+
 }
