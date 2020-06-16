@@ -9,19 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".WineActivity"></activity>
         <activity
             android:name=".MealActivity"
+            android:label="CorkNFork"></activity>
+        <activity
+            android:name=".MainActivity"
             android:label="CorkNFork">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="CorkNFork">
-
         </activity>
     </application>
 

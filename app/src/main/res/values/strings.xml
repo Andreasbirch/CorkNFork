@@ -21,4 +21,22 @@
         <item>Categorial</item>
         <item>Alphabetical</item>
     </string-array>
+
+    <string-array name="meal_activity_titles">
+        <item>Eating Beef? Delicious!</item>
+        <item>Eating pork? Good choice!</item>
+        <item>Eating chicken? Not bad!</item>
+        <item>Eating vegan? That\'s disgusting!</item>
+        <item>Eating fish? Yummy!</item>
+        <item>Eating shellfish? Someone\'s rich!</item>
+    </string-array>
+
+    <string-array name="meal_activity_descriptions">
+        <item>Dishes that focuses on beef will primarily use a red wine to complement the dish</item>
+        <item>Dishes that focuses on pork will primarily use a red wine to complement the dish</item>
+        <item>Dishes that focuses on chicken will primarily use a red wine to complement the dish</item>
+        <item>Dishes that focuses on vegetables will primarily use water to complement the dish</item>
+        <item>Dishes that focuses on fish will primarily use a white wine to complement the dish</item>
+        <item>Dishes that focuses on shellfish will primarily use a white wine to complement the dish</item>
+    </string-array>
 </resources>
