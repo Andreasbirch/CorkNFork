@@ -10,4 +10,13 @@
 
     <string name="title_mealtypeselect">What are you eating?</string>
     <string name="title_winetypeselect">What are you drinking?</string>
+
+
+    <string-array name="select_sort_items">
+        <item>Highest rated</item>
+        <item>Price low-high</item>
+        <item>Price high-low</item>
+        <item>Categorial</item>
+        <item>Alphabetical</item>
+    </string-array>
 </resources>
