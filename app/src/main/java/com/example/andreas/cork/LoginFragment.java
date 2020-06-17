@@ -21,6 +21,7 @@ public class LoginFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_login, container, false);
 
         Button signUp = (Button) view.findViewById(R.id.signUp);
+        Button login = (Button) view.findViewById(R.id.login);
 
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,15 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new UserFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         return view;
 
