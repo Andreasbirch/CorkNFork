@@ -10,12 +10,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.google.firebase.firestore.FirebaseFirestore;
+
 /**
  * Created by andreas on 11/06/2020.
  */
 
 public class LoginFragment extends Fragment {
-
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
