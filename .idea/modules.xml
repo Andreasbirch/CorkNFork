@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/CorkNFork.iml" filepath="$PROJECT_DIR$/.idea/CorkNFork.iml" group="CorkNFork" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="CorkNFork/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CorkNFork.iml" filepath="$PROJECT_DIR$/.idea/modules/CorkNFork.iml" group="CorkNFork" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CorkNFork-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CorkNFork-app.iml" group="CorkNFork/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CorkNFork2.iml" filepath="$PROJECT_DIR$/.idea/modules/CorkNFork2.iml" group="CorkNFork2" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="CorkNFork2/app" />
     </modules>
   </component>
 </project>
