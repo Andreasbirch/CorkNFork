@@ -3,11 +3,10 @@ package com.example.andreas.cork;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -18,26 +17,26 @@ import androidx.fragment.app.Fragment;
 
 public class ChooseMealtypeFragment extends Fragment {
 
-    ImageView imageButton2ImageView;
-    ImageView imageButton3ImageView;
-    ImageView imageButton4ImageView;
-    ImageView imageButton5ImageView;
-    ImageView imageButton6ImageView;
-    ImageView imageButton7ImageView;
+    Button selectBeef;
+    Button selectPork;
+    Button selectPoultry;
+    Button selectVegan;
+    Button selectFish;
+    Button selectShellfish;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_mealtypeselect, container, false);
 
-        imageButton2ImageView = (ImageView) v.findViewById(R.id.imageButton2);
-        imageButton3ImageView = (ImageView) v.findViewById(R.id.imageButton3);
-        imageButton4ImageView = (ImageView) v.findViewById(R.id.imageButton4);
-        imageButton5ImageView = (ImageView) v.findViewById(R.id.imageButton5);
-        imageButton6ImageView = (ImageView) v.findViewById(R.id.imageButton6);
-        imageButton7ImageView = (ImageView) v.findViewById(R.id.imageButton7);
+        selectBeef = (Button) v.findViewById(R.id.select_beef);
+        selectPork = (Button) v.findViewById(R.id.select_pork);
+        selectPoultry = (Button) v.findViewById(R.id.select_poultry);
+        selectVegan = (Button) v.findViewById(R.id.select_vegan);
+        selectFish = (Button) v.findViewById(R.id.select_fish);
+        selectShellfish = (Button) v.findViewById(R.id.select_shellfish);
 
-        imageButton2ImageView.setOnClickListener(new View.OnClickListener() {
+        selectBeef.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getContext(), MealActivity.class);
@@ -46,7 +45,7 @@ public class ChooseMealtypeFragment extends Fragment {
             }
         });
 
-        imageButton3ImageView.setOnClickListener(new View.OnClickListener() {
+        selectPork.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getContext(), MealActivity.class);
@@ -55,7 +54,7 @@ public class ChooseMealtypeFragment extends Fragment {
             }
         });
 
-        imageButton4ImageView.setOnClickListener(new View.OnClickListener() {
+        selectPoultry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getContext(), MealActivity.class);
@@ -64,7 +63,7 @@ public class ChooseMealtypeFragment extends Fragment {
             }
         });
 
-        imageButton5ImageView.setOnClickListener(new View.OnClickListener() {
+        selectVegan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getContext(), MealActivity.class);
@@ -73,7 +72,7 @@ public class ChooseMealtypeFragment extends Fragment {
             }
         });
 
-        imageButton6ImageView.setOnClickListener(new View.OnClickListener() {
+        selectFish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getContext(), MealActivity.class);
@@ -82,7 +81,7 @@ public class ChooseMealtypeFragment extends Fragment {
             }
         });
 
-        imageButton7ImageView.setOnClickListener(new View.OnClickListener() {
+        selectShellfish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent startIntent = new Intent(getContext(), MealActivity.class);
@@ -91,7 +90,9 @@ public class ChooseMealtypeFragment extends Fragment {
             }
         });
 
-
         return v;
+
     }
+
+
 }
