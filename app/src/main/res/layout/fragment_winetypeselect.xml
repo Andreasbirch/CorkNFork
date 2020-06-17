@@ -7,10 +7,11 @@
         android:id="@+id/imageButton2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        app:srcCompat="@drawable/ic_winetype_redwine"
         android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="33dp"
+        app:srcCompat="@drawable/ic_winetype_redwine" />
 
     <ImageButton
         android:id="@+id/imageButton3"
@@ -39,4 +40,14 @@
         android:layout_marginTop="13dp"
         android:text="@string/title_winetypeselect"
         android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/searchDrinkButton"
+        android:layout_width="114dp"
+        android:layout_height="107dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="243dp"
+        android:layout_marginEnd="38dp"
+        app:srcCompat="@drawable/ic_main_logo" />
 </RelativeLayout>
