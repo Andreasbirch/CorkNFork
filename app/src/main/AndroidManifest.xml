@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".WineActivity"></activity>
+        <activity
+            android:name=".MealActivity"
+            android:label="CorkNFork"></activity>
         <activity
             android:name=".MainActivity"
             android:label="CorkNFork">
