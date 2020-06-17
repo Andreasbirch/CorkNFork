@@ -3,6 +3,7 @@ package com.example.andreas.cork;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -21,7 +22,6 @@ public class MealActivity extends AppCompatActivity {
     String[] titles;
     String[] descriptions;
     String currentDirectory;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,11 @@ public class MealActivity extends AppCompatActivity {
             iconImageView.setImageResource(R.drawable.ic_mealtype_shellfish);
             descriptionTextView.setText(descriptions[5]);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(this, currentDirectory);
         myListView.setAdapter(mealActivitiyAdapter);
