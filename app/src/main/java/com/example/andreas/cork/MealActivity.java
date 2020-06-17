@@ -3,7 +3,6 @@ package com.example.andreas.cork;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -42,15 +41,15 @@ public class MealActivity extends AppCompatActivity {
 
         if(currentDirectory.equals("cow")) {
             titleTextView.setText(titles[0]);
-            iconImageView.setImageResource(R.drawable.ic_mealtype_cow);
+            iconImageView.setImageResource(R.drawable.ic_mealtype_beef);
             descriptionTextView.setText(descriptions[0]);
         } else if(currentDirectory.equals("pork")) {
             titleTextView.setText(titles[1]);
-            iconImageView.setImageResource(R.drawable.ic_mealtype_pig);
+            iconImageView.setImageResource(R.drawable.ic_mealtype_pork);
             descriptionTextView.setText(descriptions[1]);
         } else if(currentDirectory.equals("chicken")) {
             titleTextView.setText(titles[2]);
-            iconImageView.setImageResource(R.drawable.ic_mealtype_chicken);
+            iconImageView.setImageResource(R.drawable.ic_mealtype_poultry);
             descriptionTextView.setText(descriptions[2]);
         } else if(currentDirectory.equals("vegan")) {
             titleTextView.setText(titles[3]);
