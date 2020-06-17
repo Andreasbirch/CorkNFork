@@ -1,12 +1,13 @@
 package com.example.andreas.cork;
 
 import android.media.Rating;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import temporary_datebase.Wine;
 import temporary_datebase.WineDatabase;

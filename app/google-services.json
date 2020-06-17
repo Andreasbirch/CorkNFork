@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "897236942875",
+    "firebase_url": "https://cork--n-fork.firebaseio.com",
+    "project_id": "cork--n-fork",
+    "storage_bucket": "cork--n-fork.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897236942875:android:76fcee795bffa0d85eb8be",
+        "android_client_info": {
+          "package_name": "com.android.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897236942875-ija3dogob9d4np43l50ou8hda6o4iunk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA_z7hOe7MwmD_yjXpjD3JbyVBTZeg3SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897236942875-ija3dogob9d4np43l50ou8hda6o4iunk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897236942875:android:0bcc7b258020dbe15eb8be",
+        "android_client_info": {
+          "package_name": "com.example.andreas.cork"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "897236942875-ija3dogob9d4np43l50ou8hda6o4iunk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA_z7hOe7MwmD_yjXpjD3JbyVBTZeg3SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "897236942875-ija3dogob9d4np43l50ou8hda6o4iunk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
