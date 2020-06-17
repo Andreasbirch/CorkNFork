@@ -11,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
-
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
                             selectedFragment = new SettingsFragment();
                             break;
                         case R.id.navigation_user:
-                            selectedFragment = new LoginFragment();
+                            if (mAuth.getCurrentUser() == null){
+                                selectedFragment = new LoginFragment();
+                            }
+                            else selectedFragment = new UserFragment();
+
                             break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();

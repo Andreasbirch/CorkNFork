@@ -6,10 +6,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 /**
  * Created by andreas on 11/06/2020.
@@ -23,12 +27,18 @@ public class UserFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
-        Button logOut = (Button) view.findViewById(R.id.logoutButton);
+        final Button logOut = (Button) view.findViewById(R.id.logoutButton);
         Button myFavorites = (Button) view.findViewById(R.id.myFavorites);
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Sign out
+                FirebaseAuth mAuth = FirebaseAuth.getInstance();
+                mAuth.signOut();
+                //go back
+                Toast.makeText(getActivity(), "You have been logged out.",
+                        Toast.LENGTH_SHORT).show();
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
                 fragmentTransaction.addToBackStack(null);
