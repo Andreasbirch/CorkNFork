@@ -23,7 +23,6 @@ public class MealActivity extends AppCompatActivity {
     String[] descriptions;
     String currentDirectory;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,15 +41,15 @@ public class MealActivity extends AppCompatActivity {
 
         if(currentDirectory.equals("cow")) {
             titleTextView.setText(titles[0]);
-            iconImageView.setImageResource(R.drawable.ic_mealtype_cow);
+            iconImageView.setImageResource(R.drawable.ic_mealtype_beef);
             descriptionTextView.setText(descriptions[0]);
         } else if(currentDirectory.equals("pork")) {
             titleTextView.setText(titles[1]);
-            iconImageView.setImageResource(R.drawable.ic_mealtype_pig);
+            iconImageView.setImageResource(R.drawable.ic_mealtype_pork);
             descriptionTextView.setText(descriptions[1]);
         } else if(currentDirectory.equals("chicken")) {
             titleTextView.setText(titles[2]);
-            iconImageView.setImageResource(R.drawable.ic_mealtype_chicken);
+            iconImageView.setImageResource(R.drawable.ic_mealtype_poultry);
             descriptionTextView.setText(descriptions[2]);
         } else if(currentDirectory.equals("vegan")) {
             titleTextView.setText(titles[3]);
@@ -65,6 +64,11 @@ public class MealActivity extends AppCompatActivity {
             iconImageView.setImageResource(R.drawable.ic_mealtype_shellfish);
             descriptionTextView.setText(descriptions[5]);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(this, currentDirectory);
         myListView.setAdapter(mealActivitiyAdapter);
