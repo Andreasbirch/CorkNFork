@@ -36,9 +36,10 @@ public class UserFragment extends Fragment {
                 //Sign out
                 FirebaseAuth mAuth = FirebaseAuth.getInstance();
                 mAuth.signOut();
-                //go back
+
                 Toast.makeText(getActivity(), "You have been logged out.",
                         Toast.LENGTH_SHORT).show();
+                //go back
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
                 fragmentTransaction.addToBackStack(null);

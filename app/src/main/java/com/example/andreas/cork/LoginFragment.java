@@ -74,11 +74,11 @@ public class LoginFragment extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-        Button signUp = (Button) view.findViewById(R.id.signUp);
+        Button signUpHere = (Button) view.findViewById(R.id.goToSignUp);
         Button login = (Button) view.findViewById(R.id.login);
         final EditText email = (EditText) view.findViewById(R.id.editTextTextEmailAddress);
         final EditText password = (EditText) view.findViewById(R.id.editTextTextPassword);
-        signUp.setOnClickListener(new View.OnClickListener() {
+        signUpHere.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

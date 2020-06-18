@@ -64,14 +64,22 @@ public class SignUpFragment extends Fragment {
 
         final EditText email = (EditText) view.findViewById(R.id.editTextTextEmailAddress);
         final EditText password = (EditText) view.findViewById(R.id.editTextTextPassword);
-        Button login = (Button) view.findViewById(R.id.login);
-
-        login.setOnClickListener(new View.OnClickListener() {
+        Button signUp = (Button) view.findViewById(R.id.signUp);
+        Button loginHere = (Button) view.findViewById(R.id.goToLogin);
+        signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (!email.getText().toString().equals("") && !password.getText().toString().equals("")){
                     signUp(email.getText().toString(), password.getText().toString());
                 }
+            }
+        });
+        loginHere.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 
