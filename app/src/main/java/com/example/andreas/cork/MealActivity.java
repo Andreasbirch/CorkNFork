@@ -33,36 +33,60 @@ public class MealActivity extends AppCompatActivity {
     String[] descriptions;
     String currentDirectory;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void updateData(){
 
         //SETTING UP THE DATABASE
         DatabaseReference db = FirebaseDatabase.getInstance().getReference();
         wineDatabase = WineDatabase.getInstance();
-        if(!wineDatabase.dataHasBeenPulled) {
-            db.child("drinks").addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
-                        String name = snapshot.child("name").getValue(String.class);
-                        int img = R.drawable.wine_fletris;
-                        float rating = snapshot.child("rating").getValue(Float.class);
-                        String type = snapshot.child("type").getValue(String.class);
+        db.child("drinks").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // restart wine database
+                wineDatabase.restartDatabase();
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String name = snapshot.child("name").getValue(String.class);
+                    int img = R.drawable.wine_fletris;
+                    float rating = snapshot.child("rating").getValue(Float.class);
+                    String type = snapshot.child("type").getValue(String.class);
 
-                        wineDatabase.addWine(name, img, rating, type);
-                        Log.i("TAG_TEST", name+" "+rating);
+                    wineDatabase.addWine(name, img, rating, type);
+                    Log.i("TAG_TEST", name+" "+rating);
+                }
+
+                //Display data
+
+                MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(MealActivity.this, currentDirectory);
+                myListView.setAdapter(mealActivitiyAdapter);
+
+                myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                        Intent showWineActivity = new Intent(getApplicationContext(), WineActivity.class);
+                        String itemValue = (String) myListView.getItemAtPosition(i);
+                        showWineActivity.putExtra("com.example.andreas.cork.WINE", itemValue);
+                        startActivity(showWineActivity);
                     }
-                    wineDatabase.dataHasBeenPulled = true;
-                }
+                });
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                }
-            });
-        }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         //END
+    }
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        //Database setup
+        updateData();
 
         setContentView(R.layout.activity_meal);
         Resources res = getResources();
@@ -104,21 +128,10 @@ public class MealActivity extends AppCompatActivity {
         }
     }
 
-    @Override
+    /*@Override
     protected void onResume() {
         super.onResume();
 
-        MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(this, currentDirectory);
-        myListView.setAdapter(mealActivitiyAdapter);
 
-        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent showWineActivity = new Intent(getApplicationContext(), WineActivity.class);
-                String itemValue = (String) myListView.getItemAtPosition(i);
-                showWineActivity.putExtra("com.example.andreas.cork.WINE", itemValue);
-                startActivity(showWineActivity);
-            }
-        });
-    }
+    }*/
 }

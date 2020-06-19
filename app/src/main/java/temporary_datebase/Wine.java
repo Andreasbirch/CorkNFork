@@ -12,11 +12,23 @@ public class Wine extends Drink {
     ArrayList<String> phonesThatHasVoted = new ArrayList<String>();
 
     public Wine(String name, int img, float rating, String type) {
+        //img 2131230879
         this.name = name;
         this.img = img;
         this.rating = rating;
         this.type = type;
     }
+    public String getName(){
+        return name;
+    }
+    public float getRating(){
+        return rating;
+    }
+    public void setRating(float rating){
+        this.rating = rating;
+    }
+    public String getType(){return type;}
+    public int getImg(){return img;}
 
     public void addRatingToWine(float userRating) {
         this.noOfRatings += 1;
