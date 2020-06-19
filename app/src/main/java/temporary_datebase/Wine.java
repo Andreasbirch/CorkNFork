@@ -2,34 +2,25 @@ package temporary_datebase;
 
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-public class Wine {
-    public int id;
-    public String title;
+public class Wine extends Drink {
     public int img;
     public float rating;
-    public ArrayList<Float> allRatingsList;
-    public ArrayList<String> phonesThatHasVoted;
+    public int noOfRatings;
+    ArrayList<String> phonesThatHasVoted = new ArrayList<String>();
 
-    public Wine(int id, String title, int img) {
-        this.id = id;
-        this.title = title;
+    public Wine(String name, int img, float rating, String type) {
+        this.name = name;
         this.img = img;
-        this.rating = 0;
-        this.allRatingsList = new ArrayList<>();
-        this.phonesThatHasVoted = new ArrayList<String>();
+        this.rating = rating;
+        this.type = type;
     }
 
     public void addRatingToWine(float userRating) {
-        allRatingsList.add(userRating);
-
-        //CALCULATING THE AVERAGE RATING OF THE WINE
-        float sum = 0;
-        for(float r : allRatingsList) {
-            sum += r;
-        }
-        this.rating = sum / allRatingsList.size();
+        this.noOfRatings += 1;
+        this.rating = (rating + userRating) / noOfRatings;
     }
 
     public void addPhoneIdentifier(String id) {
