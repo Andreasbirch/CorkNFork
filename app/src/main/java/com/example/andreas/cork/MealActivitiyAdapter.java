@@ -20,13 +20,11 @@ import temporary_datebase.WineDatabase;
 
 public class MealActivitiyAdapter extends BaseAdapter {
     LayoutInflater mInflater;
-    ListView myListView;
     WineDatabase wineDatabase;
 
     String[] titles;
     int[] winesImg;
     float[] ratings;
-    String currentDirectory;
     ArrayList<Wine> winesForCurrentDirectory;
 
     public MealActivitiyAdapter(Context context, String currentDirectory) {
@@ -39,7 +37,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
         ratings = new float[winesForCurrentDirectory.size()];
 
         for(int i = 0; i < winesForCurrentDirectory.size(); i++) {
-            titles[i] = winesForCurrentDirectory.get(i).title;
+            titles[i] = winesForCurrentDirectory.get(i).name;
             winesImg[i] = winesForCurrentDirectory.get(i).img;
             ratings[i] = winesForCurrentDirectory.get(i).rating;
         }
@@ -64,7 +62,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-       View v = mInflater.inflate(R.layout.activity_meal_listview_item, null);
+        View v = mInflater.inflate(R.layout.activity_meal_listview_item, null);
         ImageView wineImageView = (ImageView) v.findViewById(R.id.wineImageView);
         TextView titleTextView = (TextView) v.findViewById(R.id.titleTextView);
         RatingBar staticRatingBar = (RatingBar) v.findViewById(R.id.staticRatingBar);
