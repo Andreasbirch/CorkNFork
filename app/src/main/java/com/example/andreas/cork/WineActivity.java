@@ -120,30 +120,7 @@ public class WineActivity extends AppCompatActivity {
                                                 myRef.child(wine.getName()).setValue(wines);
 
 
-                                                for (int i = 0; i <20; i++){
-                                                    Map<String, Object> winex = new HashMap<>();
-                                                    winex.put("rating", rating);
-                                                    winex.put("name", "wine" + i);
-                                                    winex.put("img", R.drawable.ic_winetype_redwine);
-                                                    winex.put("type", "red");
-                                                    myRef.child("wine" + i).setValue(winex);
-                                                }
-                                                for (int i = 0; i <20; i++){
-                                                    Map<String, Object> winex = new HashMap<>();
-                                                    winex.put("rating", rating);
-                                                    winex.put("name", "wine" + i+"0");
-                                                    winex.put("img", R.drawable.ic_winetype_whitewine);
-                                                    winex.put("type", "white");
-                                                    myRef.child("wine" + i+"0").setValue(winex);
-                                                }
-                                                for (int i = 0; i <20; i++){
-                                                    Map<String, Object> winex = new HashMap<>();
-                                                    winex.put("rating", rating);
-                                                    winex.put("name", "wine" + i + "00");
-                                                    winex.put("img", (R.drawable.wine_fletris));
-                                                    winex.put("type", "rosé");
-                                                    myRef.child("wine" + i+ "00").setValue(winex);
-                                                }
+
                                             }
 
                                         }
