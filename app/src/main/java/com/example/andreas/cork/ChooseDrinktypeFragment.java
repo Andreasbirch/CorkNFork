@@ -23,16 +23,21 @@ import temporary_datebase.Drink;
  * Created by andreas on 11/06/2020.
  */
 
-public class ChooseWinetypeFragment extends Fragment {
+public class ChooseDrinktypeFragment extends Fragment {
     DatabaseReference databaseReference;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_winetypeselect, container, false);
+        View view = inflater.inflate(R.layout.fragment_drinktypeselect, container, false);
         databaseReference = FirebaseDatabase.getInstance().getReference();
-        ImageButton searchDrinks = (ImageButton) view.findViewById(R.id.searchDrinkButton);
-        ImageButton redwine = (ImageButton) view.findViewById(R.id.imageButton2);
+        Button searchDrinks = (Button) view.findViewById(R.id.select_search);
+        Button select_redwine = (Button) view.findViewById(R.id.select_redwine);
+        Button select_whitewine = (Button) view.findViewById(R.id.select_whitewine);
+        Button select_rosewine = (Button) view.findViewById(R.id.select_rosewine);
+        Button select_champagne = (Button) view.findViewById(R.id.select_champagne);
+        Button select_whiskey = (Button) view.findViewById(R.id.select_whiskey);
+
 
         searchDrinks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,11 +49,9 @@ public class ChooseWinetypeFragment extends Fragment {
             }
         });
 
-        redwine.setOnClickListener(new View.OnClickListener() {
+        select_redwine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Drink drink = new Drink("Wine1","red","Country");
-                databaseReference.child("drinks").child("Wine1").setValue(drink);
 
             }
         });
