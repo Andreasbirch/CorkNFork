@@ -1,13 +1,11 @@
 package com.example.andreas.cork;
 
-import android.media.Image;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -41,7 +39,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.fragment_container, new ChooseWinetypeFragment());
+                fragmentTransaction.replace(R.id.fragment_container, new ChooseDrinktypeFragment());
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             }

@@ -28,7 +28,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleWineTextView"
-        tools:srcCompat="@drawable/ic_winetype_whitewine" />
+        tools:srcCompat="@drawable/ic_drinktype_whitewine" />
 
     <TextView
         android:id="@+id/wineDescriptionTextView"
