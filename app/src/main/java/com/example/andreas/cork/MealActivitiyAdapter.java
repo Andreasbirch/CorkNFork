@@ -63,7 +63,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = mInflater.inflate(R.layout.activity_meal_listview_item, null);
-        ImageView wineImageView = (ImageView) v.findViewById(R.id.wineImageView);
+            ImageView wineImageView = (ImageView) v.findViewById(R.id.wineImageView);
         TextView titleTextView = (TextView) v.findViewById(R.id.titleTextView);
         RatingBar staticRatingBar = (RatingBar) v.findViewById(R.id.staticRatingBar);
 

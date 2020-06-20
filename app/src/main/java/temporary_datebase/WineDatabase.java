@@ -18,6 +18,10 @@ public class WineDatabase {
         }
     }
 
+    public void restartDatabase(){
+        wines = new ArrayList<Wine>();
+    }
+
     private WineDatabase() {}
 
     public void addWine(String name, int img, float rating, String type) {
