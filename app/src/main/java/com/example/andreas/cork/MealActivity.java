@@ -50,7 +50,6 @@ public class MealActivity extends AppCompatActivity {
                     String type = snapshot.child("type").getValue(String.class);
 
                     wineDatabase.addWine(name, img, rating, type);
-                    Log.i("TAG_TEST", name+" "+rating);
                 }
 
                 //Display data

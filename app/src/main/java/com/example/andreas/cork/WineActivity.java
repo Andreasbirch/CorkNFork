@@ -1,12 +1,18 @@
 package com.example.andreas.cork;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -189,4 +195,45 @@ public class WineActivity extends AppCompatActivity {
             wineBtn.setVisibility(View.INVISIBLE);
         }
     }
+
+    public void setRatingButton(View view){
+
+    }
+
+    public void startRatingPopup(View view) {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        final View popupView = inflater.inflate(R.layout.popup_rating,null);
+        final PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
+        popupWindow.setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+
+        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
+
+        final RatingBar rateableBar = (RatingBar) popupView.findViewById(R.id.popupRatingBar);
+        Button saveRatingBtn = (Button) popupView.findViewById(R.id.saveRatingBtn);
+        saveRatingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                float rating = rateableBar.getRating();
+                Map<String, Object> data = new HashMap<>();
+                data.put("rating", rating);
+                data.put("name", wine.getName());
+
+                if (mAuth.getCurrentUser() != null){
+                    db.collection("users").document(mAuth.getUid()).collection("ratings").document(wine.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            updateRating(wine);
+                        }
+                    });
+                }
+                else{
+
+                }
+                popupWindow.dismiss();
+            }
+        });
+    }
+
+
 }
