@@ -28,6 +28,7 @@ public class Wine extends Drink {
         this.rating = rating;
     }
     public String getType(){return type;}
+    public String getCountry(){return country;}
     public int getImg(){return img;}
 
     public void addRatingToWine(float userRating) {

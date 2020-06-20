@@ -49,7 +49,7 @@ public class WineActivity extends AppCompatActivity {
 
     WineDatabase wineDatabase;
     TextView titleWineTextView;
-    TextView wineDescriptionText;
+    TextView wineDescriptionText, wineTypeText, wineVolumeText, wineCountryText;
     ImageView wineImageView;
     RatingBar wineRatingBar;
     Button wineBtn;
@@ -67,10 +67,15 @@ public class WineActivity extends AppCompatActivity {
         wineDatabase = WineDatabase.getInstance();
 
         titleWineTextView = (TextView) findViewById(R.id.titleWineTextView);
+
         wineDescriptionText = (TextView) findViewById(R.id.wineDescriptionTextView);
+        wineTypeText = (TextView) findViewById(R.id.wineTypeTextView);
+        wineVolumeText = (TextView) findViewById(R.id.wineVolumeTextView);
+        wineCountryText = (TextView) findViewById(R.id.wineCountryTextView);
+
+
         wineImageView = (ImageView) findViewById(R.id.wineImageView);
         wineRatingBar = (RatingBar) findViewById(R.id.wineRatingBar);
-        wineBtn = (Button) findViewById(R.id.wineBtn);
 
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
         wine = wineDatabase.getWine(wineTitle);
@@ -80,6 +85,9 @@ public class WineActivity extends AppCompatActivity {
             wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies felis ipsum, nec suscipit purus tempor at. ");
             wineImageView.setImageResource(wine.img);
             wineRatingBar.setRating(wine.rating);
+            wineTypeText.setText(wine.type);
+            wineVolumeText.setText("75cl");
+            wineCountryText.setText(wine.country);
         }
     }
 
@@ -145,40 +153,6 @@ public class WineActivity extends AppCompatActivity {
 
     }
 
-    public void onClickBtn(View v) {
-
-        float rating = wineRatingBar.getRating();
-        Map<String, Object> data = new HashMap<>();
-        data.put("rating", rating);
-        data.put("name", wine.getName());
-
-        if (mAuth.getCurrentUser() != null){
-            db.collection("users").document(mAuth.getUid()).collection("ratings").document(wine.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                        updateRating(wine);
-                }
-            });
-        }
-        else{
-            Toast.makeText(this, "You have to be logged in to submit a review", Toast.LENGTH_LONG).show();
-        }
-
-
-
-       /* if(!phoneHasRatedBefore) {
-            wine.addRatingToWine(wineRatingBar.getRating());
-            wineRatingBar.setRating(wine.rating);
-
-            phoneHasRatedBefore=true;
-            wineRatingBar.setIsIndicator(true);
-            wine.addPhoneIdentifier(androidId);
-            wineBtn.setVisibility(View.INVISIBLE);
-            Toast.makeText(this, "Thanks for rating this wine", Toast.LENGTH_LONG).show();
-        } else {
-            Toast.makeText(this, "This device has already voted for this wine", Toast.LENGTH_LONG).show();
-        }*/
-    }
 
     @Override
     protected void onResume() {
