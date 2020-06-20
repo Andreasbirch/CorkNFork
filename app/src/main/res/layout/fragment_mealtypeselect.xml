@@ -58,12 +58,13 @@
                 android:text="Poultry" />
 
             <Button
-                android:id="@+id/select_vegan"
+                android:id="@+id/select_fish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_vegan"
-                android:text="Vegan" />
+                android:drawableTop="@drawable/ic_mealtype_fish"
+                android:text="Fish" />
+
         </TableRow>
 
         <TableRow
@@ -71,12 +72,12 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/select_fish"
+                android:id="@+id/select_vegan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_fish"
-                android:text="Fish" />
+                android:drawableTop="@drawable/ic_mealtype_vegan"
+                android:text="Vegan" />
 
             <Button
                 android:id="@+id/select_shellfish"

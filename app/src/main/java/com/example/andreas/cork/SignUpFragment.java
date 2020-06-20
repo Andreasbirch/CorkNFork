@@ -51,6 +51,11 @@ public class SignUpFragment extends Fragment {
                             //create username in cloud
                             Map<String, Object> data = new HashMap<>();
                             data.put("username", username);
+                            data.put("isPescetarian", false);
+                            data.put("isVegan", false);
+                            data.put("isAllergicToShellfish", false);
+                            data.put("searchPreference", 0);
+
                             db.collection("users").document(mAuth.getUid()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
