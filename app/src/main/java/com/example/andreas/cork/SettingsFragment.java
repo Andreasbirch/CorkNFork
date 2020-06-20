@@ -33,9 +33,9 @@ import java.util.Map;
 
 public class SettingsFragment extends Fragment {
     final String TAG = "CORK_N_FORK";
-    private boolean isVeganBool;
-    private boolean isPescetarianBool;
-    private boolean isAllergicToShellfishBool;
+    public boolean isVeganBool;
+    public boolean isPescetarianBool;
+    public boolean isAllergicToShellfishBool;
 
     @Nullable
     @Override
@@ -117,7 +117,7 @@ public class SettingsFragment extends Fragment {
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         final Spinner selectSort = (Spinner) getView().findViewById(R.id.selectsort);
         int searchPreferenceIndex = (int) selectSort.getSelectedItemId();
-        
+
         Map<String, Object> docData = new HashMap<>();
         docData.put("isVegan", isVeganBool);
         docData.put("isPescetarian", isPescetarianBool);
