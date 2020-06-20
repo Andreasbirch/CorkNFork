@@ -93,7 +93,6 @@ public class WineActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
 
                             for (final QueryDocumentSnapshot document : task.getResult()) {
-
                                 Log.d(TAG, document.getId() + " => " + document.getData());
                                 DocumentReference ref = db.collection("users").document(document.getId()).collection("ratings").document(wine.getName());
                                 if (ref != null){
@@ -112,15 +111,12 @@ public class WineActivity extends AppCompatActivity {
                                                 DatabaseReference myRef = realtime.getReference("drinks");
 
                                                 Map<String, Object> wines = new HashMap<>();
-                                                wine.setRating(rating);
-                                                wines.put("rating", rating);
+                                                wine.setRating((rating/count));
+                                                wines.put("rating", (rating/count));
                                                 wines.put("name", wine.getName());
                                                 wines.put("img", wine.getImg());
                                                 wines.put("type", wine.getType());
                                                 myRef.child(wine.getName()).setValue(wines);
-
-
-
                                             }
 
                                         }
