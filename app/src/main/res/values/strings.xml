@@ -7,37 +7,86 @@
     <string name="title_find">Find a:</string>
     <string name="title_meal">Meal</string>
     <string name="title_wine">Wine</string>
+    <string name="title_log_out">Log out</string>
+    <string name="title_log_in">Log in</string>
+    <string name="title_sign_up">Sign up</string>
+    <string name="title_my_favorite">My favorites</string>
 
     <string name="username">Username</string>
+    <string name="password">Password</string>
 
     <string name="title_mealtypeselect">What are you eating?</string>
     <string name="title_winetypeselect">What are you drinking?</string>
 
+    <!-- Textfields for mealtypes -->
+    <string name="mealtype_beef">Beef</string>
+    <string name="mealtype_pork">Pork</string>
+    <string name="mealtype_fish">Fish</string>
+    <string name="mealtype_vegan">Vegan</string>
+    <string name="mealtype_shellfish">Shellfish</string>
+    <string name="mealtype_poultry">Poultry</string>
 
+    <!-- Textfields for drinktypes -->
+    <string name="title_what_are_you_drinking">What are you drinking?</string>
+    <string name="drinktype_wine_red">Red Wine</string>
+    <string name="drinktype_wine_white">White Wine</string>
+    <string name="drinktype_wine_Rose">Rosé Wine</string>
+    <string name="drinktype_champagne">Champagne</string>
+    <string name="drinktype_whiskey">Whiskey</string>
+    <string name="drinktype_water">Water</string>
+    <string name="title_search">Search</string>
+
+    <string name="title_food">Food</string>
+    <string name="title_is_vegan">Vegan</string>
+    <string name="title_is_pescetarian">Pescetarian</string>
+    <string name="title_is_allergic_to_shellfish">Shellfish allergies</string>
+    <string name="title_search_results">Search results</string>
+    <string name="title_sort_by">Sort by</string>
+
+    <string name="title_rate_this_drink">Rate this drink</string>
+    <string name="title_save">Save</string>
+
+    <string name="title_dont_have_account">Don\'t have an account yet?</string>
+    <string name="title_already_have_account">Already have an account?</string>
+    <string name="title_sign_up_here">Sign up here</string>
+
+
+    <!-- Toast messages -->
+    <string name="toast_authentication_failed">Authentication failed</string>
+    <string name="toast_already_logged_in">Already logged in</string>
+    <string name="toast_you_have_been_logged_out">You have been logged out</string>
+    <string name="toast_username_taken">Username taken</string>
+    <string name="toast_user_created_successfully">User successfully created</string>
+    <string name="toast_error">An error occured, please try again</string>
+    <string name="toast_drink_added_to_favorites">Drink added to favorites</string>
+    <string name="toast_drink_removed_from_favorites">Drink removed from favorites</string>
+    <string name="toast_thanks_for_rating">Thanks for rating this drink!</string>
+
+    <!-- String arrays -->
     <string-array name="select_sort_items">
-        <item>Highest rated</item>
-        <item>Price low-high</item>
-        <item>Price high-low</item>
-        <item>Categorial</item>
-        <item>Alphabetical</item>
+        <item><string name="select_sort_items_highest_rated">Highest rated</string></item>
+        <item><string name="select_sort_items_low_high">Price low-high</string></item>
+        <item><string name="select_sort_items_high_low">Price high-low</string></item>
+        <item><string name="select_sort_items_categorical">Categorial</string></item>
+        <item><string name="select_sort_items_Alphabetical">Alphabetical</string></item>
     </string-array>
 
     <string-array name="meal_activity_titles">
-        <item>Eating Beef? Delicious!</item>
-        <item>Eating pork? Good choice!</item>
-        <item>Eating chicken? Not bad!</item>
-        <item>Eating vegan?</item>
-        <item>Eating fish? Yummy!</item>
-        <item>Eating shellfish? Someone\'s rich!</item>
+        <item> <string name="meal_activity_title_Beef">Eating beef? Delicious!</string></item>
+        <item> <string name="meal_activity_title_Pork">Eating pork? Good choice!</string></item>
+        <item> <string name="meal_activity_title_Poultry">Eating poultry? Not bad!</string></item>
+        <item> <string name="meal_activity_title_Vegan">Eating vegan? Healthy!</string></item>
+        <item> <string name="meal_activity_title_Fish">Eating fish? Yummy!</string></item>
+        <item> <string name="meal_activity_title_Shellfish">Eating shellfish? Someone\'s rich!</string></item>
     </string-array>
 
     <string-array name="meal_activity_descriptions">
-        <item>Dishes that focuses on beef will primarily use a red wine to complement the dish</item>
-        <item>Dishes that focuses on pork will primarily use a red wine to complement the dish</item>
-        <item>Dishes that focuses on chicken will primarily use a red wine to complement the dish</item>
-        <item>Dishes that focuses on vegetables will primarily use water to complement the dish</item>
-        <item>Dishes that focuses on fish will primarily use a white wine to complement the dish</item>
-        <item>Dishes that focuses on shellfish will primarily use a white wine to complement the dish</item>
+        <item><string name="meal_activity_descriptions_Beef">Dishes that focuses on beef will primarily use a red wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Pork">Dishes that focuses on pork will primarily use a red wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Poultry">Dishes that focuses on poultry will either use a white or a red wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Vegan">Dishes that focuses on vegetables will primarily use water to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Fish">Dishes that focuses on fish will primarily use a white wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Shellfish">Dishes that focuses on shellfish will primarily use a white wine to complement the dish</string></item>
     </string-array>
 
     <string-array name="drink_activity_titles">

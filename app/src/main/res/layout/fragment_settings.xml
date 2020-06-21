@@ -9,7 +9,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/title_settings"
         android:textAlignment="center"
         android:textSize="36sp" />
 
@@ -18,7 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
-        android:text="Food"
+        android:text="@string/title_food"
         android:textAlignment="center" />
 
     <LinearLayout
@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="left"
-            android:text="Vegan"
+            android:text="@string/mealtype_vegan"
             android:textSize="18sp" />
 
         <Switch
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="left"
-            android:text="Pescetarian"
+            android:text="@string/title_is_pescetarian"
             android:textSize="18sp" />
 
         <Switch
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="left"
-            android:text="Seafood allergies"
+            android:text="@string/title_is_allergic_to_shellfish"
             android:textSize="18sp" />
 
         <Switch
@@ -86,7 +86,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
-        android:text="Search results"
+        android:text="@string/title_search_results"
         android:textAlignment="center" />
 
     <TextView
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp"
-        android:text="Sort by" />
+        android:text="@string/title_sort_by" />
 
     <Spinner
         android:id="@+id/selectsort"

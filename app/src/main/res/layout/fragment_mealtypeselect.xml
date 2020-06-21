@@ -1,98 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_centerHorizontal="false"
-    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView3"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="What are you eating?"
-        android:textAlignment="center"
-        android:textSize="24sp" />
-
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="#00FFFFFF"
-        android:gravity="center"
-        android:onClick="tableOnClick">
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <TableRow
-            android:id="@+id/tableRow1"
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_mealtypeselect"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+
+        <TableLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:background="#00FFFFFF"
+            android:gravity="center"
+            android:onClick="tableOnClick">
 
-            <Button
-                android:id="@+id/select_beef"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_beef"
-                android:text="Beef" />
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center">
 
-            <Button
-                android:id="@+id/select_pork"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_pork"
-                android:text="Pork" />
-        </TableRow>
+                <Button
+                    android:id="@+id/select_beef"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_mealtype_beef"
+                    android:text="@string/mealtype_beef" />
 
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+                <Button
+                    android:id="@+id/select_pork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_mealtype_pork"
+                    android:text="@string/mealtype_pork" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/select_poultry"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_poultry"
-                android:text="Poultry" />
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/select_fish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_fish"
-                android:text="Fish" />
+                <Button
+                    android:id="@+id/select_poultry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_mealtype_poultry"
+                    android:text="@string/mealtype_poultry" />
 
-        </TableRow>
+                <Button
+                    android:id="@+id/select_fish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_mealtype_fish"
+                    android:text="@string/mealtype_fish" />
 
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            </TableRow>
 
-            <Button
-                android:id="@+id/select_vegan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_vegan"
-                android:text="Vegan" />
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <Button
-                android:id="@+id/select_shellfish"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_shellfish"
-                android:text="Shellfish" />
-        </TableRow>
+                <Button
+                    android:id="@+id/select_vegan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_mealtype_vegan"
+                    android:text="@string/mealtype_vegan" />
 
-    </TableLayout>
+                <Button
+                    android:id="@+id/select_shellfish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_mealtype_shellfish"
+                    android:text="@string/mealtype_shellfish" />
+            </TableRow>
 
-</LinearLayout>
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

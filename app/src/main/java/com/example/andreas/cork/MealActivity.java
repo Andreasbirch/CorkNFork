@@ -3,10 +3,8 @@ package com.example.andreas.cork;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -20,7 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import temporary_datebase.Wine;
 import temporary_datebase.WineDatabase;
 
 public class MealActivity extends AppCompatActivity {
@@ -46,15 +43,14 @@ public class MealActivity extends AppCompatActivity {
                 wineDatabase.restartDatabase();
                 for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
                     String name = snapshot.child("name").getValue(String.class);
-                    int img = R.drawable.wine_fletris;
                     float rating = snapshot.child("rating").getValue(Float.class);
                     String type = snapshot.child("type").getValue(String.class);
+                    int id = snapshot.child("id").getValue(Integer.class);
 
-                    wineDatabase.addWine(name, img, rating, type);
+                    wineDatabase.addWine(name, rating, type, id);
                 }
 
                 //Display data
-
                 MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(MealActivity.this, currentDirectory);
                 myListView.setAdapter(mealActivitiyAdapter);
 
@@ -67,8 +63,6 @@ public class MealActivity extends AppCompatActivity {
                         startActivity(showWineActivity);
                     }
                 });
-
-
             }
 
             @Override
@@ -82,8 +76,6 @@ public class MealActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         //Database setup
         updateData();
 

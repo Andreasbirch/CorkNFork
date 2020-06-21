@@ -1,88 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerInParent="true"
     android:layout_centerHorizontal="false"
-    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView6"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="What are you drinking?"
-        android:textAlignment="center"
-        android:textSize="24sp" />
-
-    <TableLayout
-        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center">
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="false"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-        <TableRow
+        <TextView
+            android:id="@+id/textView6"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/title_what_are_you_drinking"
+            android:textAlignment="center"
+            android:textSize="24sp" />
 
-            <Button
-                android:id="@+id/select_redwine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_drinktype_redwine"
-                android:text="Red Wine"/>
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-            <Button
-                android:id="@+id/select_whitewine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_drinktype_whitewine"
-                android:text="White Wine" />
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <Button
+                    android:id="@+id/select_redwine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_drinktype_redwine"
+                    android:text="@string/drinktype_wine_red" />
 
-            <Button
-                android:id="@+id/select_rosewine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_drinktype_rosewine"
-                android:text="Rose Wine" />
+                <Button
+                    android:id="@+id/select_whitewine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_drinktype_whitewine"
+                    android:text="@string/drinktype_wine_white" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/select_champagne"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_drinktype_champagne"
-                android:text="Champagne" />
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+                <Button
+                    android:id="@+id/select_rosewine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_drinktype_rosewine"
+                    android:text="@string/drinktype_wine_Rose" />
 
-            <Button
-                android:id="@+id/select_whiskey"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_drinktype_whiskey"
-                android:text="Whiskey" />
+                <Button
+                    android:id="@+id/select_champagne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_drinktype_champagne"
+                    android:text="@string/drinktype_champagne" />
+            </TableRow>
 
-            <Button
-                android:id="@+id/select_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_search"
-                android:text="Search" />
-        </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    </TableLayout>
-</LinearLayout>
+                <Button
+                    android:id="@+id/select_whiskey"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_drinktype_whiskey"
+                    android:text="@string/drinktype_whiskey" />
+
+                <Button
+                    android:id="@+id/select_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:drawableTop="@drawable/ic_search"
+                    android:text="@string/title_search" />
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+</ScrollView>

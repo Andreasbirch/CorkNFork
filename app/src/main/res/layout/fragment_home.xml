@@ -24,5 +24,4 @@
         android:layout_height="wrap_content"
         android:drawableTop="@drawable/ic_wine_icon"
         android:text="@string/title_wine" />
-
 </LinearLayout>

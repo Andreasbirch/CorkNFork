@@ -14,19 +14,16 @@
         android:layout_marginStart="57dp"
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="29dp"
-        android:text="Log out" />
+        android:text="@string/title_log_out" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="234dp"
-        android:layout_height="352dp"
-        android:layout_above="@+id/myFavorites"
-        android:layout_below="@+id/usernameTextView"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="79dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="102dp"
-        tools:src="@tools:sample/avatars" />
+        android:id="@+id/profileImageView"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:src="@drawable/avatar"/>
 
     <TextView
         android:id="@+id/usernameTextView"
@@ -37,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
         android:layout_marginEnd="61dp"
-        android:text="Username"
+        android:text="@string/username"
         android:textSize="18sp" />
 
     <Button
@@ -50,6 +47,19 @@
         android:layout_marginStart="57dp"
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="94dp"
-        android:text="My favorites" />
+        android:text="@string/title_my_favorite" />
+
+    <Button
+        android:id="@+id/changeProfile"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="57dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="157dp"
+        android:text="Change profile picture" />
+
 
 </RelativeLayout>
