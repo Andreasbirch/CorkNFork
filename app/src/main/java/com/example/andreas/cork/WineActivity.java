@@ -133,7 +133,7 @@ public class WineActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
-                        Toast.makeText(WineActivity.this, "Drink added to favorites", Toast.LENGTH_LONG).show();
+                        Toast.makeText(WineActivity.this, R.string.toast_drink_added_to_favorites, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -142,7 +142,7 @@ public class WineActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
-                        Toast.makeText(WineActivity.this, "Drink removed from favorites", Toast.LENGTH_LONG).show();
+                        Toast.makeText(WineActivity.this, R.string.toast_drink_removed_from_favorites, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -194,7 +194,7 @@ public class WineActivity extends AppCompatActivity {
 
                                 }
                             }
-                            Toast.makeText(WineActivity.this, "Thanks for rating this wine", Toast.LENGTH_LONG).show();
+                            Toast.makeText(WineActivity.this, R.string.toast_thanks_for_rating, Toast.LENGTH_LONG).show();
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
