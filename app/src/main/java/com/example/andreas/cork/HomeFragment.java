@@ -28,9 +28,6 @@ public class HomeFragment extends Fragment {
         Button gotoMealtypeSelect = (Button) view.findViewById(R.id.goto_mealtype_select);
         Button gotoWinetypeSelect = (Button) view.findViewById(R.id.goto_winetype_select);
 
-        ImageView imageView = (ImageView) view.findViewById(R.id.testImage);
-        Glide.with(this).load("http://goo.gl/gEgYUd").into(imageView);
-
         gotoMealtypeSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
