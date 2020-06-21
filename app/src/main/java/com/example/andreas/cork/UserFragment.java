@@ -2,6 +2,7 @@ package com.example.andreas.cork;
 
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,10 @@ public class UserFragment extends Fragment {
         final TextView usernameDisplay = (TextView) view.findViewById(R.id.usernameTextView);
 
         //get username
-            DocumentReference docRef = db.collection("users").document(mAuth.getUid());
+
+        Log.d(TAG, "username from preference: "+PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("username", "")+ " at activity: " + getActivity().toString());
+        usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("username", ""));
+            /*DocumentReference docRef = db.collection("users").document(mAuth.getUid());
             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
                 public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -60,7 +64,7 @@ public class UserFragment extends Fragment {
                         Log.d(TAG, "get failed with ", task.getException());
                     }
                 }
-            });
+            });*/
 
 
         logOut.setOnClickListener(new View.OnClickListener() {
