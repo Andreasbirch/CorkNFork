@@ -1,6 +1,7 @@
 package com.example.andreas.cork;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,10 +55,35 @@ public class LoginFragment extends Fragment {
                             // Sign in success, and go to userfragment
                             Log.d(TAG, "signInWithEmail:success");
 
-                            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                            fragmentTransaction.replace(R.id.fragment_container, new UserFragment());
-                            fragmentTransaction.addToBackStack(null);
-                            fragmentTransaction.commit();
+                            DocumentReference docRef = db.collection("users").document(mAuth.getUid());
+                            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                @Override
+                                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                    if (task.isSuccessful()){
+                                        DocumentSnapshot document = task.getResult();
+                                        if (document.exists()){
+                                            Log.d(TAG, "Username found: "+ document.get("username").toString() + " at activity: " + getActivity().toString());
+                                            PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("username", document.get("username").toString());
+
+
+                                        }
+                                        else{
+                                            Log.d(TAG, "No such document");
+                                        }
+
+                                        FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                                        fragmentTransaction.replace(R.id.fragment_container, new UserFragment());
+                                        fragmentTransaction.addToBackStack(null);
+                                        fragmentTransaction.commit();
+                                    }
+
+                                    else {
+                                        Log.d(TAG, "get failed with ", task.getException());
+                                    }
+                                }
+                            });
+
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
