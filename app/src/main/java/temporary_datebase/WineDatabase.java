@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class WineDatabase {
     public static boolean dataHasBeenPulled = false;
-    ArrayList<Wine> wines = new ArrayList<Wine>();
+    ArrayList<Drink> drinks = new ArrayList<Drink>();
     private static WineDatabase instance;
 
     //Singleton
@@ -19,57 +19,57 @@ public class WineDatabase {
     }
 
     public void restartDatabase(){
-        wines = new ArrayList<Wine>();
+        drinks = new ArrayList<Drink>();
     }
 
     private WineDatabase() {}
 
     public void addWine(String name, int img, float rating, String type) {
-        wines.add(new Wine(name, img, rating, type));
+        drinks.add(new Drink(name, img, rating, type));
     }
 
-    public ArrayList<Wine> getWinesThatGoWith(String category) {
-        ArrayList<Wine> holder = new ArrayList<Wine>();
+    public ArrayList<Drink> getWinesThatGoWith(String category) {
+        ArrayList<Drink> holder = new ArrayList<Drink>();
         switch (category) {
             case "cow":
-                for(Wine wine : wines) {
-                    if(wine.type.equals("red")) {
-                        holder.add(wine);
+                for(Drink drink : drinks) {
+                    if(drink.type.equals("red")) {
+                        holder.add(drink);
                     }
                 }
                 break;
            case "pork":
-               for(Wine wine : wines) {
-                   if(wine.type.equals("white")) {
-                       holder.add(wine);
+               for(Drink drink : drinks) {
+                   if(drink.type.equals("white")) {
+                       holder.add(drink);
                    }
                }
                 break;
             case "chicken":
-                for(Wine wine : wines) {
-                    if(wine.type.equals("white")) {
-                        holder.add(wine);
+                for(Drink drink : drinks) {
+                    if(drink.type.equals("white")) {
+                        holder.add(drink);
                     }
                 }
                 break;
             case "vegan":
-                for(Wine wine : wines) {
-                    if(wine.type.equals("white")) {
-                        holder.add(wine);
+                for(Drink drink : drinks) {
+                    if(drink.type.equals("white")) {
+                        holder.add(drink);
                     }
                 }
                 break;
             case "fish":
-                for(Wine wine : wines) {
-                    if(wine.type.equals("rosé")) {
-                        holder.add(wine);
+                for(Drink drink : drinks) {
+                    if(drink.type.equals("rosé")) {
+                        holder.add(drink);
                     }
                 }
                 break;
             case "shellfish":
-                for(Wine wine : wines) {
-                    if(wine.type.equals("rosé")) {
-                        holder.add(wine);
+                for(Drink drink : drinks) {
+                    if(drink.type.equals("rosé")) {
+                        holder.add(drink);
                     }
                 }
                 break;
@@ -77,10 +77,10 @@ public class WineDatabase {
         return holder;
     }
 
-    public Wine getWine(String title) {
-        for (Wine wine : wines) {
-            if(wine.name.equals(title)) {
-                return wine;
+    public Drink getWine(String title) {
+        for (Drink drink : drinks) {
+            if(drink.name.equals(title)) {
+                return drink;
             }
         }
 
