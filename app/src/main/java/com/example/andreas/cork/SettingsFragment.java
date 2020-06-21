@@ -67,6 +67,7 @@ public class SettingsFragment extends Fragment {
         isPescetarianSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("isPescetarian", false));
         isAllergicToShellfishSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("isAllergicToShellfish", false));
         //Populate fields
+        //TODO delete later
         /*DocumentReference docRef = db.collection("users").document(mAuth.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
