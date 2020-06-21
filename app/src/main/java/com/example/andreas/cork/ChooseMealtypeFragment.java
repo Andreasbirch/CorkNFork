@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Switch;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -59,6 +60,9 @@ public class ChooseMealtypeFragment extends Fragment {
         selectShellfish = (Button) v.findViewById(R.id.select_shellfish);
         selectVegan = (Button) v.findViewById(R.id.select_vegan);
         TableLayout tl = (TableLayout) v.findViewById(R.id.tableLayout);
+        TableRow row1 = (TableRow) v.findViewById(R.id.tableRow1);
+        TableRow row2 = (TableRow) v.findViewById(R.id.tableRow2);
+        TableRow row3 = (TableRow) v.findViewById(R.id.tableRow3) ;
         tl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +86,9 @@ public class ChooseMealtypeFragment extends Fragment {
            selectPoultry.setClickable(false);
            selectShellfish.setClickable(false);
            selectFish.setClickable(false);
+           row3.removeAllViews();
+           row1.removeAllViews();
+           row1.addView(selectVegan);
         }
         if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean( "isPescetarian", false)){
             selectBeef.setVisibility(View.INVISIBLE);
@@ -90,8 +97,14 @@ public class ChooseMealtypeFragment extends Fragment {
             selectBeef.setEnabled(false);
             selectPork.setEnabled(false);
             selectPoultry.setEnabled(false);
-
             selectFish.setClickable(false);
+
+            row1.removeAllViews();
+            row2.removeAllViews();
+            row3.removeAllViews();
+            row1.addView(selectFish);
+            row2.addView(selectVegan);
+            row3.addView(selectShellfish);
         }
         if (PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean( "isAllergicToShellfish", false)){
             selectShellfish.setVisibility(View.INVISIBLE);

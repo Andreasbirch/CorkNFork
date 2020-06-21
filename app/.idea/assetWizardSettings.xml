@@ -11,10 +11,24 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
+                        <option name="children">
+                          <map>
+                            <entry key="clipartAsset">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material/icons/materialicons/favorite/baseline_favorite_24.xml" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_select" />
+                            <entry key="outputName" value="ic_baseline_favorite_24" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/../../../Skole/2. semester/Softwareprojekt/Projekt/Icons/Search.svg" />
                           </map>
                         </option>
