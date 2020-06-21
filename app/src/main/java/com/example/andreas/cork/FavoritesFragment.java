@@ -47,7 +47,7 @@ public class FavoritesFragment extends Fragment {
 
 
 
-        //Get list of favorites
+        //Get list of favorites s
         db.collection("users").document(mAuth.getUid()).collection("favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
