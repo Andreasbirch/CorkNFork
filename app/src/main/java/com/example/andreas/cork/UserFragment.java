@@ -42,6 +42,7 @@ public class UserFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_user, container, false);
 
         final Button logOut = (Button) view.findViewById(R.id.logoutButton);
+        final Button favorites = (Button) view.findViewById(R.id.myFavorites);
         Button myFavorites = (Button) view.findViewById(R.id.myFavorites);
         final TextView usernameDisplay = (TextView) view.findViewById(R.id.usernameTextView);
 
@@ -50,6 +51,17 @@ public class UserFragment extends Fragment {
         SharedPreferences pref = this.getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
         usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND"));
 
+
+        favorites.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                // go to favorites fragment
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.fragment_container, new FavoritesFragment());
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
