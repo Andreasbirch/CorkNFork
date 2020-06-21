@@ -40,7 +40,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.HashMap;
 import java.util.Map;
 
-import temporary_datebase.Wine;
+import temporary_datebase.Drink;
 import temporary_datebase.WineDatabase;
 
 import static java.util.logging.Logger.global;
@@ -55,7 +55,7 @@ public class WineActivity extends AppCompatActivity {
     ImageView wineImageView;
     RatingBar wineRatingBar;
     Button wineBtn;
-    Wine wine;
+    Drink drink;
     CheckBox checkboxFavorite;
 
     boolean phoneHasRatedBefore = false;
@@ -83,19 +83,19 @@ public class WineActivity extends AppCompatActivity {
         wineRatingBar = (RatingBar) findViewById(R.id.wineRatingBar);
 
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
-        wine = wineDatabase.getWine(wineTitle);
+        drink = wineDatabase.getWine(wineTitle);
 
 
 
 
-        if(wine != null) {
+        if(drink != null) {
             titleWineTextView.setText(wineTitle);
             wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies felis ipsum, nec suscipit purus tempor at. ");
-            wineImageView.setImageResource(wine.img);
-            wineRatingBar.setRating(wine.rating);
-            wineTypeText.setText(wine.type);
+            wineImageView.setImageResource(drink.img);
+            wineRatingBar.setRating(drink.rating);
+            wineTypeText.setText(drink.type);
             wineVolumeText.setText("75cl");
-            wineCountryText.setText(wine.country);
+            wineCountryText.setText(drink.country);
 
             db.collection("users").document(mAuth.getUid()).collection("favorites").get()
                     .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -103,7 +103,7 @@ public class WineActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<QuerySnapshot> task) {
                             if (task.isSuccessful()) {
                                 for (QueryDocumentSnapshot document : task.getResult()) {
-                                    if (document.getId().equals(wine.getName())){
+                                    if (document.getId().equals(drink.getName())){
                                         checkboxFavorite.setChecked(true);
                                     }
                                 }
@@ -123,11 +123,11 @@ public class WineActivity extends AppCompatActivity {
         final boolean checked = ((CheckBox) view).isChecked();
         if (view.getId() == checkboxFavorite.getId()){
             Map<String, Object> data = new HashMap<>();
-            data.put("drink", wine); //TODO change to drink
+            data.put("drink", drink); //TODO change to drink
             if (checked){
                 //add fav to firestore
 
-                db.collection("users").document(mAuth.getUid()).collection("favorites").document(wine.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                db.collection("users").document(mAuth.getUid()).collection("favorites").document(drink.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
@@ -137,7 +137,7 @@ public class WineActivity extends AppCompatActivity {
                 });
             }
             else {
-                db.collection("users").document(mAuth.getUid()).collection("favorites").document(wine.getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                db.collection("users").document(mAuth.getUid()).collection("favorites").document(drink.getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
@@ -157,7 +157,7 @@ public class WineActivity extends AppCompatActivity {
     int count = 0;
     float rating = 0;
     FirebaseDatabase realtime = FirebaseDatabase.getInstance();
-    public void updateRating(final Wine wine){
+    public void updateRating(final Drink drink){
         count = 0;
         rating = 0;
 
@@ -171,7 +171,7 @@ public class WineActivity extends AppCompatActivity {
 
                             for (final QueryDocumentSnapshot document : task.getResult()) {
                                 Log.d(TAG, document.getId() + " => " + document.getData());
-                                DocumentReference ref = db.collection("users").document(document.getId()).collection("ratings").document(wine.getName());
+                                DocumentReference ref = db.collection("users").document(document.getId()).collection("ratings").document(drink.getName());
                                 if (ref != null){
                                     ref.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                         @Override
@@ -188,12 +188,12 @@ public class WineActivity extends AppCompatActivity {
                                                 DatabaseReference myRef = realtime.getReference("drinks");
 
                                                 Map<String, Object> wines = new HashMap<>();
-                                                wine.setRating((rating/count));
+                                                drink.setRating((rating/count));
                                                 wines.put("rating", (rating/count));
-                                                wines.put("name", wine.getName());
-                                                wines.put("img", wine.getImg());
-                                                wines.put("type", wine.getType());
-                                                myRef.child(wine.getName()).setValue(wines);
+                                                wines.put("name", drink.getName());
+                                                wines.put("img", drink.getImg());
+                                                wines.put("type", drink.getType());
+                                                myRef.child(drink.getName()).setValue(wines);
                                             }
 
                                         }
@@ -222,11 +222,12 @@ public class WineActivity extends AppCompatActivity {
         super.onResume();
         String androidId = Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID);
 
-        if(wine.searchIdentifiers(androidId)) {
+        //DONT NEED THIS
+        /*if(drink.searchIdentifiers(androidId)) {
             phoneHasRatedBefore = true;
             wineRatingBar.setIsIndicator(true);
             wineBtn.setVisibility(View.INVISIBLE);
-        }
+        }*/
     }
 
     public void setRatingButton(View view){
@@ -250,13 +251,13 @@ public class WineActivity extends AppCompatActivity {
                 float rating = rateableBar.getRating();
                 Map<String, Object> data = new HashMap<>();
                 data.put("rating", rating);
-                data.put("name", wine.getName());
+                data.put("name", drink.getName());
 
                 if (mAuth.getCurrentUser() != null){
-                    db.collection("users").document(mAuth.getUid()).collection("ratings").document(wine.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    db.collection("users").document(mAuth.getUid()).collection("ratings").document(drink.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            updateRating(wine);
+                            updateRating(drink);
                         }
                     });
                 }

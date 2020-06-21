@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import temporary_datebase.Wine;
+import temporary_datebase.Drink;
 import temporary_datebase.WineDatabase;
 
 public class MealActivitiyAdapter extends BaseAdapter {
@@ -25,7 +25,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
     String[] titles;
     int[] winesImg;
     float[] ratings;
-    ArrayList<Wine> winesForCurrentDirectory;
+    ArrayList<Drink> winesForCurrentDirectory;
 
     public MealActivitiyAdapter(Context context, String currentDirectory) {
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
