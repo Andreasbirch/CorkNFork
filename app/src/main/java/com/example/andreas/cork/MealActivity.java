@@ -46,12 +46,12 @@ public class MealActivity extends AppCompatActivity {
                     int img = R.drawable.wine_fletris;
                     float rating = snapshot.child("rating").getValue(Float.class);
                     String type = snapshot.child("type").getValue(String.class);
+                    int id = snapshot.child("id").getValue(int.class);
 
-                    wineDatabase.addWine(name, img, rating, type);
+                    wineDatabase.addWine(name, img, rating, type, id);
                 }
 
                 //Display data
-
                 MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(MealActivity.this, currentDirectory);
                 myListView.setAdapter(mealActivitiyAdapter);
 
@@ -64,8 +64,6 @@ public class MealActivity extends AppCompatActivity {
                         startActivity(showWineActivity);
                     }
                 });
-
-
             }
 
             @Override
@@ -79,8 +77,6 @@ public class MealActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         //Database setup
         updateData();
 

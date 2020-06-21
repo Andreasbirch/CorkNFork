@@ -22,6 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -36,6 +37,8 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -85,13 +88,12 @@ public class WineActivity extends AppCompatActivity {
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
         drink = wineDatabase.getWine(wineTitle);
 
-
-
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(drink.id + ".png");
 
         if(drink != null) {
             titleWineTextView.setText(wineTitle);
             wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies felis ipsum, nec suscipit purus tempor at. ");
-            wineImageView.setImageResource(drink.img);
+            Glide.with(this).load(storageReference).into(wineImageView);
             wineRatingBar.setRating(drink.rating);
             wineTypeText.setText(drink.type);
             wineVolumeText.setText("75cl");
@@ -137,8 +139,7 @@ public class WineActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
-                        Toast.makeText(WineActivity.this, "Drink added to favorites", Toast.LENGTH_LONG).show();
-
+                        Toast.makeText(WineActivity.this, R.string.toast_drink_added_to_favorites, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -147,18 +148,12 @@ public class WineActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
-                        Toast.makeText(WineActivity.this, "Drink removed from favorites", Toast.LENGTH_LONG).show();
-
-
+                        Toast.makeText(WineActivity.this, R.string.toast_drink_removed_from_favorites, Toast.LENGTH_LONG).show();
                     }
                 });
             }
-
         }
     }
-
-
-
 
     int count = 0;
     float rating = 0;
@@ -166,7 +161,6 @@ public class WineActivity extends AppCompatActivity {
     public void updateRating(final Drink drink){
         count = 0;
         rating = 0;
-
 
         db.collection("users")
                 .get()
@@ -201,25 +195,18 @@ public class WineActivity extends AppCompatActivity {
                                                 wines.put("type", drink.getType());
                                                 myRef.child(drink.getName()).setValue(wines);
                                             }
-
                                         }
                                     });
 
                                 }
                             }
-
-
-
-                            Toast.makeText(WineActivity.this, "Thanks for rating this wine", Toast.LENGTH_LONG).show();
+                            Toast.makeText(WineActivity.this, R.string.toast_thanks_for_rating, Toast.LENGTH_LONG).show();
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
                 });
-
-
-
     }
 
 
@@ -266,8 +253,7 @@ public class WineActivity extends AppCompatActivity {
                             updateRating(drink);
                         }
                     });
-                }
-                else{
+                } else {
 
                 }
                 popupWindow.dismiss();
