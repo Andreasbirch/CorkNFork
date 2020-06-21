@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -78,7 +79,6 @@ public class MealActivity extends AppCompatActivity {
         //END
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -91,7 +91,6 @@ public class MealActivity extends AppCompatActivity {
         Resources res = getResources();
         titles = res.getStringArray(R.array.meal_activity_titles);
         descriptions = res.getStringArray(R.array.meal_activity_descriptions);
-
         myListView = findViewById(R.id.myListView);
 
         titleTextView =  (TextView) findViewById(R.id.titleTextView);
