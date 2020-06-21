@@ -1,5 +1,7 @@
 package temporary_datebase;
 
+import java.util.ArrayList;
+
 public class Drink {
 
     public String name;
@@ -9,8 +11,19 @@ public class Drink {
     public float price;
     public int ratingAmount;
     public int img;
-    public Drink(){
 
+    public Drink(){
+        this.name = name;
+        this.img = img;
+        this.rating = rating;
+        this.type = type;
+    }
+
+    public Drink(String name, int img, float rating, String type ){
+        this.name = name;
+        this.img = img;
+        this.rating = rating;
+        this.type = type;
     }
 
     public Drink(String name, int img, String type, String country, float rating, float price, int ratingAmount) {
@@ -34,6 +47,9 @@ public class Drink {
     }
     public String getType(){return type;}
     public int getImg(){return img;}
+    public String getCountry() {
+        return  country;
+    }
 
 
 }
