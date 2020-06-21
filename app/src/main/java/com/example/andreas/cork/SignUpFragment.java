@@ -64,7 +64,7 @@ public class SignUpFragment extends Fragment {
                                     // go to login page and reset current user.
                                     mAuth.signOut();
 
-                                    Toast.makeText(getActivity(), "User created successfully.",
+                                    Toast.makeText(getActivity(), R.string.toast_user_created_successfully,
                                             Toast.LENGTH_SHORT).show();
                                     FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                                     fragmentTransaction.replace(R.id.fragment_container, new LoginFragment());
@@ -77,7 +77,7 @@ public class SignUpFragment extends Fragment {
                                         public void onFailure(@NonNull Exception e) {
                                             Log.w(TAG, "Error writing user", e);
 
-                                            Toast.makeText(getActivity(), "Error occurred, try agian.",
+                                            Toast.makeText(getActivity(), R.string.toast_error,
                                                     Toast.LENGTH_SHORT).show();
                                             //delete user from auth
                                             mAuth.getCurrentUser().delete();
@@ -87,7 +87,7 @@ public class SignUpFragment extends Fragment {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Authentication failed.",
+                            Toast.makeText(getActivity(), R.string.toast_authentication_failed,
                                     Toast.LENGTH_SHORT).show();
 
                         }
@@ -128,7 +128,7 @@ public class SignUpFragment extends Fragment {
                                             if(document.getData().get("username").equals(username)){
                                                 usernameCheck = false;
                                                 //message user
-                                                Toast.makeText(getActivity(), "Username taken.",
+                                                Toast.makeText(getActivity(), R.string.toast_username_taken,
                                                         Toast.LENGTH_SHORT).show();
                                                 break;
                                             }

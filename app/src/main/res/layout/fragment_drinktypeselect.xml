@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="What are you drinking?"
+            android:text="@string/title_what_are_you_drinking"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -38,7 +38,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_drinktype_redwine"
-                    android:text="Red Wine" />
+                    android:text="@string/drinktype_wine_red" />
 
                 <Button
                     android:id="@+id/select_whitewine"
@@ -46,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_drinktype_whitewine"
-                    android:text="White Wine" />
+                    android:text="@string/drinktype_wine_white" />
             </TableRow>
 
             <TableRow
@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_drinktype_rosewine"
-                    android:text="Rose Wine" />
+                    android:text="@string/drinktype_wine_Rose" />
 
                 <Button
                     android:id="@+id/select_champagne"
@@ -67,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_drinktype_champagne"
-                    android:text="Champagne" />
+                    android:text="@string/drinktype_champagne" />
             </TableRow>
 
             <TableRow
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_drinktype_whiskey"
-                    android:text="Whiskey" />
+                    android:text="@string/drinktype_whiskey" />
 
                 <Button
                     android:id="@+id/select_search"
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_search"
-                    android:text="Search" />
+                    android:text="@string/title_search" />
             </TableRow>
 
         </TableLayout>

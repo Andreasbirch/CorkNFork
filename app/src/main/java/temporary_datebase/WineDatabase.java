@@ -24,8 +24,8 @@ public class WineDatabase {
 
     private WineDatabase() {}
 
-    public void addWine(String name, int img, float rating, String type, int id) {
-        drinks.add(new Drink(name, img, rating, type, id));
+    public void addWine(String name, float rating, String type, int id) {
+        drinks.add(new Drink(name, rating, type, id));
     }
 
     public ArrayList<Drink> getWinesThatGoWith(String category) {

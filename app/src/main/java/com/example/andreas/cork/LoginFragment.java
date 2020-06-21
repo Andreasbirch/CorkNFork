@@ -89,7 +89,7 @@ public class LoginFragment extends Fragment {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Authentication failed.",
+                            Toast.makeText(getActivity(), R.string.toast_authentication_failed,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -126,7 +126,7 @@ public class LoginFragment extends Fragment {
                        userLogin(email.getText().toString(), password.getText().toString());
                    }
                }
-               else Toast.makeText(getActivity(), "Already logged in",
+               else Toast.makeText(getActivity(), R.string.toast_already_logged_in,
                        Toast.LENGTH_SHORT).show();
 
             }

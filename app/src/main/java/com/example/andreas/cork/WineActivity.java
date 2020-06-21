@@ -88,7 +88,7 @@ public class WineActivity extends AppCompatActivity {
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
         drink = wineDatabase.getWine(wineTitle);
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(drink.id + ".png");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(drink.img);
 
         if(drink != null) {
             titleWineTextView.setText(wineTitle);
@@ -125,7 +125,17 @@ public class WineActivity extends AppCompatActivity {
         final boolean checked = ((CheckBox) view).isChecked();
         if (view.getId() == checkboxFavorite.getId()){
             Map<String, Object> data = new HashMap<>();
-            data.put("drink", drink); //TODO change to drink
+<<<<<<< HEAD
+            data.put("drink", drink);
+=======
+            data.put("name", drink.getName());
+            data.put("img", drink.getImg());
+            data.put("rating", drink.getRating());
+            data.put("country", drink.getCountry());
+            data.put("type", drink.getType());
+            data.put("ratingAmount", drink.getRatingAmount());
+
+>>>>>>> 56c00bbba52c7ec3f2ea31993ea2f313c329e10b
             if (checked){
                 //add fav to firestore
 
@@ -133,7 +143,7 @@ public class WineActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
-                        Toast.makeText(WineActivity.this, "Drink added to favorites", Toast.LENGTH_LONG).show();
+                        Toast.makeText(WineActivity.this, R.string.toast_drink_added_to_favorites, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -142,7 +152,7 @@ public class WineActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         //Toast to user.
-                        Toast.makeText(WineActivity.this, "Drink removed from favorites", Toast.LENGTH_LONG).show();
+                        Toast.makeText(WineActivity.this, R.string.toast_drink_removed_from_favorites, Toast.LENGTH_LONG).show();
                     }
                 });
             }
@@ -194,7 +204,7 @@ public class WineActivity extends AppCompatActivity {
 
                                 }
                             }
-                            Toast.makeText(WineActivity.this, "Thanks for rating this wine", Toast.LENGTH_LONG).show();
+                            Toast.makeText(WineActivity.this, R.string.toast_thanks_for_rating, Toast.LENGTH_LONG).show();
 
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
