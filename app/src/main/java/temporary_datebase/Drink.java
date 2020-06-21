@@ -19,7 +19,7 @@ public class Drink {
         this.type = type;
     }
 
-    public Drink(String name, int img, float rating, String type){
+    public Drink(String name, int img, float rating, String type ){
         this.name = name;
         this.img = img;
         this.rating = rating;
