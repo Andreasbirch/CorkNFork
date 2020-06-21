@@ -22,7 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import temporary_datebase.Wine;
 import temporary_datebase.WineDatabase;
 
 public class DrinkChoiceActivity extends AppCompatActivity {

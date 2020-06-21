@@ -125,17 +125,9 @@ public class WineActivity extends AppCompatActivity {
         final boolean checked = ((CheckBox) view).isChecked();
         if (view.getId() == checkboxFavorite.getId()){
             Map<String, Object> data = new HashMap<>();
-<<<<<<< HEAD
-            data.put("drink", drink);
-=======
-            data.put("name", drink.getName());
-            data.put("img", drink.getImg());
-            data.put("rating", drink.getRating());
-            data.put("country", drink.getCountry());
-            data.put("type", drink.getType());
-            data.put("ratingAmount", drink.getRatingAmount());
 
->>>>>>> 56c00bbba52c7ec3f2ea31993ea2f313c329e10b
+            data.put("drink", drink);
+
             if (checked){
                 //add fav to firestore
 

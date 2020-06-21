@@ -46,13 +46,10 @@ public class MealActivitiyAdapter extends BaseAdapter {
             ratings[i] = winesForCurrentDirectory.get(i).rating;
         }
     }
-
-<<<<<<< HEAD
-=======
     public MealActivitiyAdapter(Context context, ArrayList<Drink> favorites){
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         titles = new String[favorites.size()];
-        winesImg = new int[favorites.size()];
+        winesImg = new String[favorites.size()];
         ratings = new float[favorites.size()];
 
         for(int i = 0; i < favorites.size(); i++) {
@@ -60,7 +57,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
             winesImg[i] = favorites.get(i).img;
             ratings[i] = favorites.get(i).rating;
         }
->>>>>>> 56c00bbba52c7ec3f2ea31993ea2f313c329e10b
+
     }
 
     @Override

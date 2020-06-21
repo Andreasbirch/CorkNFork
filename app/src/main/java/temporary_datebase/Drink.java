@@ -43,26 +43,14 @@ public class Drink {
     public String getName(){ return name; }
     public float getRating(){ return rating; }
     public String getType(){return type;}
-<<<<<<< HEAD
+
     public String getImg(){return img;}
     public String getCountry() {
         return  country;
     }
 
+    public void setRating(float rating){
+        this.rating = rating;
+    }
 
-=======
-    public int getImg(){return img;}
-    public String getCountry() { return  country; }
-    public float getPrice() { return price; }
-    public int getRatingAmount() { return ratingAmount; }
-
-
-    public void setRating(float rating){ this.rating = rating; }
-    public void setName(String name){this.name = name;}
-    public void setCountry(String country){this.country = country;}
-    public void setType(String type) { this.type = type; }
-    public void setImg(int img) { this.img = img; }
-    public void setPrice(float price) { this.price = price; }
-    public void setRatingAmount(int ratingAmount) { this.ratingAmount = ratingAmount; }
->>>>>>> 56c00bbba52c7ec3f2ea31993ea2f313c329e10b
 }
