@@ -1,5 +1,7 @@
 package com.example.andreas.cork;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import android.preference.PreferenceManager;
@@ -44,27 +46,9 @@ public class UserFragment extends Fragment {
         final TextView usernameDisplay = (TextView) view.findViewById(R.id.usernameTextView);
 
         //get username
-
-        Log.d(TAG, "username from preference: "+PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("username", "")+ " at activity: " + getActivity().toString());
-        usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getActivity()).getString("username", ""));
-            /*DocumentReference docRef = db.collection("users").document(mAuth.getUid());
-            docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()){
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()){
-                            Log.d(TAG, "Username found");
-                            usernameDisplay.setText(document.get("username").toString());
-                        }
-                        else{
-                            Log.d(TAG, "No such document");
-                        }
-                    }else {
-                        Log.d(TAG, "get failed with ", task.getException());
-                    }
-                }
-            });*/
+        Log.d(TAG, "username from preference: "+PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND")+ " at activity: " + getContext().toString());
+        SharedPreferences pref = this.getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
+        usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND"));
 
 
         logOut.setOnClickListener(new View.OnClickListener() {

@@ -1,5 +1,7 @@
 package com.example.andreas.cork;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -63,7 +65,7 @@ public class LoginFragment extends Fragment {
                                         DocumentSnapshot document = task.getResult();
                                         if (document.exists()){
                                             Log.d(TAG, "Username found: "+ document.get("username").toString() + " at activity: " + getActivity().toString());
-                                            PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("username", document.get("username").toString());
+                                            PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putString("username", document.get("username").toString()).commit();
 
 
                                         }
