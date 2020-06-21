@@ -1,15 +1,20 @@
 package com.example.andreas.cork;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +33,17 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.w3c.dom.Document;
 
+import java.io.IOException;
+
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by andreas on 11/06/2020.
  */
 
 public class UserFragment extends Fragment {
     final String TAG = "CORK_N_FORK";
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +54,7 @@ public class UserFragment extends Fragment {
         final Button logOut = (Button) view.findViewById(R.id.logoutButton);
         Button myFavorites = (Button) view.findViewById(R.id.myFavorites);
         final TextView usernameDisplay = (TextView) view.findViewById(R.id.usernameTextView);
+
 
         //get username
         Log.d(TAG, "username from preference: "+PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND")+ " at activity: " + getContext().toString());
@@ -70,4 +81,7 @@ public class UserFragment extends Fragment {
 
         return view;
     }
+
+
+
 }
