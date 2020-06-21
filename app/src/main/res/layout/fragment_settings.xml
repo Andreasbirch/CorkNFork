@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="left"
-            android:text="Seafood allergies"
+            android:text="Shellfish allergies"
             android:textSize="18sp" />
 
         <Switch
