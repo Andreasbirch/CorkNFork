@@ -4,12 +4,14 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -54,6 +56,8 @@ public class WineActivity extends AppCompatActivity {
     RatingBar wineRatingBar;
     Button wineBtn;
     Wine wine;
+    CheckBox checkboxFavorite;
+
     boolean phoneHasRatedBefore = false;
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -65,6 +69,7 @@ public class WineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wine);
         wineDatabase = WineDatabase.getInstance();
+        checkboxFavorite = findViewById(R.id.checkbox_favorite);
 
         titleWineTextView = (TextView) findViewById(R.id.titleWineTextView);
 
@@ -80,6 +85,9 @@ public class WineActivity extends AppCompatActivity {
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
         wine = wineDatabase.getWine(wineTitle);
 
+
+
+
         if(wine != null) {
             titleWineTextView.setText(wineTitle);
             wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies felis ipsum, nec suscipit purus tempor at. ");
@@ -88,8 +96,63 @@ public class WineActivity extends AppCompatActivity {
             wineTypeText.setText(wine.type);
             wineVolumeText.setText("75cl");
             wineCountryText.setText(wine.country);
+
+            db.collection("users").document(mAuth.getUid()).collection("favorites").get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if (task.isSuccessful()) {
+                                for (QueryDocumentSnapshot document : task.getResult()) {
+                                    if (document.getId().equals(wine.getName())){
+                                        checkboxFavorite.setChecked(true);
+                                    }
+                                }
+                            } else {
+                                Log.w(TAG, "Error getting documents.", task.getException());
+                            }
+                        }
+                    });
+        }
+
+
+
+
+    }
+
+    public void onCheckboxClicked(final View view){
+        final boolean checked = ((CheckBox) view).isChecked();
+        if (view.getId() == checkboxFavorite.getId()){
+            Map<String, Object> data = new HashMap<>();
+            data.put("drink", wine); //TODO change to drink
+            if (checked){
+                //add fav to firestore
+
+                db.collection("users").document(mAuth.getUid()).collection("favorites").document(wine.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Toast to user.
+                        Toast.makeText(WineActivity.this, "Drink added to favorites", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+            }
+            else {
+                db.collection("users").document(mAuth.getUid()).collection("favorites").document(wine.getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        //Toast to user.
+                        Toast.makeText(WineActivity.this, "Drink removed from favorites", Toast.LENGTH_LONG).show();
+
+
+                    }
+                });
+            }
+
         }
     }
+
+
+
 
     int count = 0;
     float rating = 0;

@@ -2,6 +2,7 @@ package com.example.andreas.cork;
 
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -62,8 +63,11 @@ public class SettingsFragment extends Fragment {
         selectSort.setAdapter(selectSortAdapter);
 
 
+        isVeganSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("isVegan", false));
+        isPescetarianSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("isPescetarian", false));
+        isAllergicToShellfishSwitch.setChecked(PreferenceManager.getDefaultSharedPreferences(getActivity()).getBoolean("isAllergicToShellfish", false));
         //Populate fields
-        DocumentReference docRef = db.collection("users").document(mAuth.getUid());
+        /*DocumentReference docRef = db.collection("users").document(mAuth.getUid());
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
@@ -84,25 +88,30 @@ public class SettingsFragment extends Fragment {
                     Log.d(TAG, "get failed with ", task.getException());
                 }
             }
-        });
+        });*/
 
 
         isVeganSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 isVeganBool = b;
+                PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putBoolean("isVegan", b).commit();
             }
         });
         isPescetarianSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 isPescetarianBool = b;
+                PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putBoolean("isPescetarian", b).commit();
+
             }
         });
         isAllergicToShellfishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 isAllergicToShellfishBool = b;
+                PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putBoolean("isAllergicToShellfish", b).commit();
+
             }
         });
 
