@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="What are you eating?"
+            android:text="@string/title_mealtypeselect"
             android:textAlignment="center"
             android:textSize="24sp" />
 
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_mealtype_beef"
-                    android:text="Beef" />
+                    android:text="@string/mealtype_beef" />
 
                 <Button
                     android:id="@+id/select_pork"
@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_mealtype_pork"
-                    android:text="Pork" />
+                    android:text="@string/mealtype_pork" />
             </TableRow>
 
             <TableRow
@@ -66,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_mealtype_poultry"
-                    android:text="Poultry" />
+                    android:text="@string/mealtype_poultry" />
 
                 <Button
                     android:id="@+id/select_fish"
@@ -74,7 +74,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_mealtype_fish"
-                    android:text="Fish" />
+                    android:text="@string/mealtype_fish" />
 
             </TableRow>
 
@@ -89,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_mealtype_vegan"
-                    android:text="Vegan" />
+                    android:text="@string/mealtype_vegan" />
 
                 <Button
                     android:id="@+id/select_shellfish"
@@ -97,7 +97,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:drawableTop="@drawable/ic_mealtype_shellfish"
-                    android:text="Shellfish" />
+                    android:text="@string/mealtype_shellfish" />
             </TableRow>
 
         </TableLayout>

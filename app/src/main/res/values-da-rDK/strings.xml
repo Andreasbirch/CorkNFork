@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CorkNFork</string>
+    <string name="title_home">Hjem</string>
+    <string name="title_settings">Indstillinger</string>
+    <string name="title_user">Bruger</string>
+    <string name="title_find">Find en:</string>
+    <string name="title_meal">Ret</string>
+    <string name="title_wine">Vin</string>
+    <string name="username">Burgernavn</string>
+    <string name="title_mealtypeselect">Hvad skal du spise?</string>
+    <string name="title_winetypeselect">Hvad skal du drikke?</string>
+    <string name="mealtype_beef">Oksekød</string>
+    <string name="mealtype_pork">Svinekød</string>
+    <string name="mealtype_fish">Fisk</string>
+    <string name="mealtype_vegan">Vegansk</string>
+    <string name="mealtype_shellfish">Skaldyr</string>
+    <string name="mealtype_poultry">Fjerkræ</string>
+
+
+
+
+
+
+    <string-array name="select_sort_items">
+        <item><string name="select_sort_items_highest_rated">Højest bedømt</string></item>
+        <item><string name="select_sort_items_low_high">Pris lav-høj</string></item>
+        <item><string name="select_sort_items_high_low">Pris høj-lav</string></item>
+        <item><string name="select_sort_items_categorical">Kategorisk</string></item>
+        <item><string name="select_sort_items_Alphabetical">Alfabetisk</string></item>
+    </string-array>
+
+    <string-array name="meal_activity_titles">
+        <item> <string name="meal_activity_title_Beef">Spiser du oksekød? Lækkert!</string></item>
+        <item> <string name="meal_activity_title_Pork">Spiser du svinekød? Godt valg!</string></item>
+        <item> <string name="meal_activity_title_Poultry">Spiser du fjerkræ? Ikke dårligt!</string></item>
+        <item> <string name="meal_activity_title_Vegan">Spiser du vegansk? Sundt!</string></item>
+        <item> <string name="meal_activity_title_Fish">Spiser du fisk? Mums!</string></item>
+        <item> <string name="meal_activity_title_Shellfish">Spiser du skaldyr? Nogen er rig!</string></item>
+    </string-array>
+
+    <string-array name="meal_activity_descriptions">
+        <item><string name="meal_activity_descriptions_Beef">Retter med fokus på oksekød komplementeres godt med en rødvin</string></item>
+        <item><string name="meal_activity_descriptions_Pork">Retter med fokus på svinekød komplementeres godt med en rødvin</string></item>
+        <item><string name="meal_activity_descriptions_Poultry">Retter med fjerkræ komplementeres godt med enten rød- eller hvidvin</string></item>
+        <item><string name="meal_activity_descriptions_Vegan">Veganske retter komplementeres godt med vand</string></item>
+        <item><string name="meal_activity_descriptions_Fish">Retter med fisk komplementeres godt med en hvidvin</string></item>
+        <item><string name="meal_activity_descriptions_Shellfish">Retter med skaldyr komplementeres godt med en hvidvin eller champagne</string></item>
+    </string-array>
+    <string name="title_log_out">Log ud</string>
+    <string name="title_log_in">Log in</string>
+    <string name="title_sign_up">Opret bruger</string>
+    <string name="title_my_favorite">Mine favoritter</string>
+    <string name="password">Kodeord</string>
+    <string name="title_dont_have_account">Har du ikke en konto?</string>
+    <string name="title_already_have_account">Har du allerede en konto?</string>
+    <string name="title_sign_up_here">Tilmeld dig her</string>
+    <string name="drinktype_wine_red">Rødvin</string>
+    <string name="drinktype_wine_white">Hvidvin</string>
+    <string name="drinktype_wine_Rose">Rosévin</string>
+    <string name="drinktype_champagne">Champagne</string>
+    <string name="drinktype_whiskey">Whiskey</string>
+    <string name="drinktype_water">Vand</string>
+    <string name="title_what_are_you_drinking">Hvad drikker du?</string>
+    <string name="title_search">Søg</string>
+    <string name="title_food">Mad</string>
+    <string name="title_search_results">Søgeresultater</string>
+    <string name="title_is_vegan">Veganer</string>
+    <string name="title_is_pescetarian">Pescetar</string>
+    <string name="title_is_allergic_to_shellfish">Allergisk til Skaldyr</string>
+    <string name="title_sort_by">Sortér efter</string>
+    <string name="title_rate_this_drink">Bedøm denne drink</string>
+    <string name="title_save">Gem</string>
+    <string name="toast_authentication_failed">Kunne ikke logge ind</string>
+    <string name="toast_already_logged_in">Allerede logget ind</string>
+    <string name="toast_you_have_been_logged_out">Du er blevet logget ud</string>
+    <string name="toast_username_taken">Brugernavnet er taget</string>
+    <string name="toast_user_created_successfully">Bruger succesfuldt oprettet</string>
+    <string name="toast_error">Der opstod en fejl, prøv venligst igen</string>
+    <string name="toast_drink_added_to_favorites">Drink tilføjet til favoritter</string>
+    <string name="toast_drink_removed_from_favorites">Drink fjernet fra favoritter</string>
+    <string name="toast_thanks_for_rating">Tak for din bedømmelse!</string>
+</resources>
