@@ -88,7 +88,7 @@ public class WineActivity extends AppCompatActivity {
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
         drink = wineDatabase.getWine(wineTitle);
 
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(drink.id + ".png");
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(drink.img);
 
         if(drink != null) {
             titleWineTextView.setText(wineTitle);
@@ -125,7 +125,7 @@ public class WineActivity extends AppCompatActivity {
         final boolean checked = ((CheckBox) view).isChecked();
         if (view.getId() == checkboxFavorite.getId()){
             Map<String, Object> data = new HashMap<>();
-            data.put("drink", drink); //TODO change to drink
+            data.put("drink", drink);
             if (checked){
                 //add fav to firestore
 

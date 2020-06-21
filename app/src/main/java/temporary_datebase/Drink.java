@@ -10,7 +10,7 @@ public class Drink {
     public float rating;
     public float price;
     public int ratingAmount;
-    public int img;
+    public String img;
     public int id;
 
     public Drink(){
@@ -20,23 +20,23 @@ public class Drink {
         this.type = type;
     }
 
-    public Drink(String name, int img, float rating, String type, int id){
+    public Drink(String name, float rating, String type, int id){
         this.name = name;
-        this.img = img;
         this.rating = rating;
         this.type = type;
         this.id = id;
+        this.img = id + ".png";
     }
 
-    public Drink(String name, int img, String type, String country, float rating, float price, int ratingAmount, int id) {
+    public Drink(String name, String type, String country, float rating, float price, int ratingAmount, int id) {
         this.name = name;
         this.type = type;
         this.country = country;
         this.rating = rating;
         this.price = price;
         this.ratingAmount = ratingAmount;
-        this.img = img;
         this.id = id;
+        this.img = id + ".png";
     }
 
     public String getName(){
@@ -49,7 +49,7 @@ public class Drink {
         this.rating = rating;
     }
     public String getType(){return type;}
-    public int getImg(){return img;}
+    public String getImg(){return img;}
     public String getCountry() {
         return  country;
     }

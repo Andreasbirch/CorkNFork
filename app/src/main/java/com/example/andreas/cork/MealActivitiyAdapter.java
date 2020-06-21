@@ -13,6 +13,10 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 
 import temporary_datebase.Drink;
@@ -23,7 +27,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
     WineDatabase wineDatabase;
 
     String[] titles;
-    int[] winesImg;
+    String[] winesImg;
     float[] ratings;
     ArrayList<Drink> winesForCurrentDirectory;
 
@@ -33,7 +37,7 @@ public class MealActivitiyAdapter extends BaseAdapter {
         winesForCurrentDirectory = wineDatabase.getWinesThatGoWith(currentDirectory);
 
         titles = new String[winesForCurrentDirectory.size()];
-        winesImg = new int[winesForCurrentDirectory.size()];
+        winesImg = new String[winesForCurrentDirectory.size()];
         ratings = new float[winesForCurrentDirectory.size()];
 
         for(int i = 0; i < winesForCurrentDirectory.size(); i++) {
@@ -41,7 +45,6 @@ public class MealActivitiyAdapter extends BaseAdapter {
             winesImg[i] = winesForCurrentDirectory.get(i).img;
             ratings[i] = winesForCurrentDirectory.get(i).rating;
         }
-
 
     }
 
@@ -63,12 +66,13 @@ public class MealActivitiyAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         View v = mInflater.inflate(R.layout.activity_meal_listview_item, null);
-            ImageView wineImageView = (ImageView) v.findViewById(R.id.wineImageView);
+        ImageView wineImageView = (ImageView) v.findViewById(R.id.wineImageView);
         TextView titleTextView = (TextView) v.findViewById(R.id.titleTextView);
         RatingBar staticRatingBar = (RatingBar) v.findViewById(R.id.staticRatingBar);
 
         staticRatingBar.setRating(ratings[i]);
-        wineImageView.setImageResource(winesImg[i]);
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(winesImg[i]);
+        Glide.with(view).load(storageReference).into(wineImageView);
         titleTextView.setText(titles[i]);
 
         return v;
