@@ -6,10 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.bumptech.glide.Glide;
 
 /**
  * Created by andreas on 15/06/2020.
@@ -24,6 +27,9 @@ public class HomeFragment extends Fragment {
 
         Button gotoMealtypeSelect = (Button) view.findViewById(R.id.goto_mealtype_select);
         Button gotoWinetypeSelect = (Button) view.findViewById(R.id.goto_winetype_select);
+
+        ImageView imageView = (ImageView) view.findViewById(R.id.testImage);
+        Glide.with(this).load("http://goo.gl/gEgYUd").into(imageView);
 
         gotoMealtypeSelect.setOnClickListener(new View.OnClickListener() {
             @Override

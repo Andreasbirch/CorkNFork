@@ -22,6 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -36,6 +37,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -78,20 +80,18 @@ public class WineActivity extends AppCompatActivity {
         wineVolumeText = (TextView) findViewById(R.id.wineVolumeTextView);
         wineCountryText = (TextView) findViewById(R.id.wineCountryTextView);
 
-
         wineImageView = (ImageView) findViewById(R.id.wineImageView);
+        Glide.with(this).load("http://goo.gl/gEgYUd").into(wineImageView);
         wineRatingBar = (RatingBar) findViewById(R.id.wineRatingBar);
 
         String wineTitle = getIntent().getExtras().getString("com.example.andreas.cork.WINE");
         wine = wineDatabase.getWine(wineTitle);
 
-
-
-
         if(wine != null) {
             titleWineTextView.setText(wineTitle);
             wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies felis ipsum, nec suscipit purus tempor at. ");
-            wineImageView.setImageResource(wine.img);
+            //wineImageView.setImageResource(wine.img);
+            Glide.with(this).load("http://goo.gl/gEgYUd").into(wineImageView);
             wineRatingBar.setRating(wine.rating);
             wineTypeText.setText(wine.type);
             wineVolumeText.setText("75cl");
@@ -113,10 +113,6 @@ public class WineActivity extends AppCompatActivity {
                         }
                     });
         }
-
-
-
-
     }
 
     public void onCheckboxClicked(final View view){
@@ -143,7 +139,6 @@ public class WineActivity extends AppCompatActivity {
                         //Toast to user.
                         Toast.makeText(WineActivity.this, "Drink removed from favorites", Toast.LENGTH_LONG).show();
 
-
                     }
                 });
             }
@@ -151,16 +146,12 @@ public class WineActivity extends AppCompatActivity {
         }
     }
 
-
-
-
     int count = 0;
     float rating = 0;
     FirebaseDatabase realtime = FirebaseDatabase.getInstance();
     public void updateRating(final Wine wine){
         count = 0;
         rating = 0;
-
 
         db.collection("users")
                 .get()
