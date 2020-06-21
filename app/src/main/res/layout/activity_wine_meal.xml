@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:layout_centerHorizontal="false"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/drinkTitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="10dp"
+        android:text="Wine type"
+        android:textAlignment="center"
+        android:textSize="24sp" />
+
+    <ImageView
+        android:id="@+id/drinkImageView"
+        android:layout_width="195dp"
+        android:layout_height="54dp"
+        app:srcCompat="@drawable/ic_drinktype_redwine" />
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#00FFFFFF"
+        android:baselineAligned="false"
+        android:gravity="center_horizontal">
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/food1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_mealtype_beef"
+                android:visibility="invisible"
+                android:text="Beef" />
+
+            <Button
+                android:id="@+id/food2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_mealtype_pork"
+                android:visibility="invisible"
+                android:text="Pork" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/food3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_mealtype_poultry"
+                android:visibility="invisible"
+                android:text="Poultry" />
+
+            <Button
+                android:id="@+id/food4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_mealtype_fish"
+                android:visibility="invisible"
+                android:text="Fish" />
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/food5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_mealtype_vegan"
+                android:visibility="invisible"
+                android:text="Vegan" />
+
+            <Button
+                android:id="@+id/food6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:drawableTop="@drawable/ic_mealtype_shellfish"
+                android:visibility="invisible"
+                android:text="Shellfish" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/drinkDescriptionTextView"
+        android:layout_width="359dp"
+        android:layout_height="120dp"
+        android:text="TextView"
+        android:textSize="18sp" />
+
+</LinearLayout>

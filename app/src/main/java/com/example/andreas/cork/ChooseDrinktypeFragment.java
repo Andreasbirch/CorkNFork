@@ -1,8 +1,10 @@
 package com.example.andreas.cork;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import android.service.chooser.ChooserTarget;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,9 +54,49 @@ public class ChooseDrinktypeFragment extends Fragment {
         select_redwine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            Intent startIntent = new Intent(getContext(),DrinkChoiceActivity.class);
+            startIntent.putExtra("com.example.andreas.cork.DRINK_TYPE","redwine");
+            startActivity(startIntent);
             }
         });
+
+        select_whitewine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getActivity(),DrinkChoiceActivity.class);
+                startIntent.putExtra("com.example.andreas.cork.DRINK_TYPE","whitewine");
+                startActivity(startIntent);
+            }
+        });
+
+        select_rosewine.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getContext(),DrinkChoiceActivity.class);
+                startIntent.putExtra("com.example.andreas.cork.DRINK_TYPE","rosewine");
+                startActivity(startIntent);
+            }
+        });
+
+        select_champagne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getContext(),DrinkChoiceActivity.class);
+                startIntent.putExtra("com.example.andreas.cork.DRINK_TYPE","champagne");
+                startActivity(startIntent);
+            }
+        });
+
+        select_whiskey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent startIntent = new Intent(getContext(),DrinkChoiceActivity.class);
+                startIntent.putExtra("com.example.andreas.cork.DRINK_TYPE","whiskey");
+                startActivity(startIntent);
+            }
+        });
+
+
         return view;
     }
 }
