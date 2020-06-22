@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.bumptech.glide.Glide;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -45,14 +47,13 @@ public class MealActivitiyAdapter extends BaseAdapter {
             winesImg[i] = winesForCurrentDirectory.get(i).img;
             ratings[i] = winesForCurrentDirectory.get(i).rating;
         }
+
     }
 
-<<<<<<< HEAD
-=======
     public MealActivitiyAdapter(Context context, ArrayList<Drink> favorites){
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         titles = new String[favorites.size()];
-        winesImg = new int[favorites.size()];
+        winesImg = new String[favorites.size()];
         ratings = new float[favorites.size()];
 
         for(int i = 0; i < favorites.size(); i++) {
@@ -60,7 +61,6 @@ public class MealActivitiyAdapter extends BaseAdapter {
             winesImg[i] = favorites.get(i).img;
             ratings[i] = favorites.get(i).rating;
         }
->>>>>>> 56c00bbba52c7ec3f2ea31993ea2f313c329e10b
     }
 
     @Override
@@ -85,9 +85,11 @@ public class MealActivitiyAdapter extends BaseAdapter {
         TextView titleTextView = (TextView) v.findViewById(R.id.titleTextView);
         RatingBar staticRatingBar = (RatingBar) v.findViewById(R.id.staticRatingBar);
 
+        //Glide.with(view.getContext()).load(winesImg[i]).into(wineImageView);
+
         staticRatingBar.setRating(ratings[i]);
         StorageReference storageReference = FirebaseStorage.getInstance().getReference().child(winesImg[i]);
-        Glide.with(view).load(storageReference).into(wineImageView);
+        Glide.with(v).load(storageReference).into(wineImageView);
         titleTextView.setText(titles[i]);
 
         return v;

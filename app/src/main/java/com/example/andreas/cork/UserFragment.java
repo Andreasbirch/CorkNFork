@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -19,24 +17,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import org.w3c.dom.Document;
-
-import java.io.IOException;
-
-import static android.app.Activity.RESULT_OK;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 /**
  * Created by andreas on 11/06/2020.
@@ -46,6 +36,7 @@ public class UserFragment extends Fragment {
     final String TAG = "CORK_N_FORK";
     ImageView profileImage;
     Button changeProfileImage;
+    StorageReference storageReference;
 
     @Nullable
     @Override
@@ -62,10 +53,14 @@ public class UserFragment extends Fragment {
         changeProfileImage = (Button) view.findViewById(R.id.changeProfile);
 
         //get username
-        Log.d(TAG, "username from preference: "+PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND")+ " at activity: " + getContext().toString());
+        Log.d(TAG, "username from preference: " + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND")+ " at activity: " + getContext().toString());
         SharedPreferences pref = this.getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
         usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND"));
 
+        Uri photoUrl = mAuth.getCurrentUser().getPhotoUrl();
+
+        //storageReference = FirebaseStorage.getInstance().getReference().child(photoUrl);
+        Glide.with(this).load(storageReference).into(profileImage);
 
         favorites.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -110,7 +105,6 @@ public class UserFragment extends Fragment {
         return view;
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -118,8 +112,8 @@ public class UserFragment extends Fragment {
         if(requestCode == 1000) {
             Log.i(TAG,"her2");
             if(resultCode == Activity.RESULT_OK) {
-                Uri imageUri = data.getData();
-                profileImage.setImageURI(imageUri);
+
+                Glide.with(this).load(storageReference).into(profileImage);
                 Log.i(TAG,"her3");
             }
         }
