@@ -55,9 +55,9 @@ public class MealActivity extends AppCompatActivity {
                     String country = snapshot.child("country").getValue(String.class);
                     int price = snapshot.child("price").getValue(Integer.class);
                     int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
+                    String goesWithMeals = snapshot.child("goesWithMeals").getValue(String.class);
 
-                    String s = snapshot.child("goesWithMeals").getValue(String.class);
-                    char[] c = s.toCharArray();
+                    char[] c = goesWithMeals.toCharArray();
                     List<String> goesWith = new ArrayList<>();
 
                     if(c[0]== '1'){
@@ -79,7 +79,7 @@ public class MealActivity extends AppCompatActivity {
                         goesWith.add("Shellfish");
                     }
 
-                    wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description, goesWith);
+                    wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description, goesWith, goesWithMeals);
                 }
 
                 //Display data

@@ -60,14 +60,14 @@ public class UserFragment extends Fragment {
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        View view = inflater.inflate(R.layout.fragment_user, container, false);
-        view.setBackgroundColor(Color.WHITE);
+        final View view = inflater.inflate(R.layout.fragment_user, container, false);
 
         final Button logOut = (Button) view.findViewById(R.id.logoutButton);
         final Button favorites = (Button) view.findViewById(R.id.myFavorites);
         Button myFavorites = (Button) view.findViewById(R.id.myFavorites);
         final TextView usernameDisplay = (TextView) view.findViewById(R.id.usernameTextView);
         profileImage = (ImageView) view.findViewById(R.id.profileImageView);
+        profileImage.setImageResource(R.drawable.avatar);
         changeProfileImage = (Button) view.findViewById(R.id.changeProfile);
 
         fAuth = FirebaseAuth.getInstance();
@@ -81,9 +81,12 @@ public class UserFragment extends Fragment {
         username = PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND");
         storageReference = FirebaseStorage.getInstance().getReference().child("/" + username + ".jpeg");
 
-        if(storageReference != null) {
-            Glide.with(view).load(storageReference).into(profileImage);
-        }
+        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(view.getContext()).load(storageReference).diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).into(profileImage);
+            }
+        });
 
         favorites.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -150,9 +153,9 @@ public class UserFragment extends Fragment {
 
         if(imageUri != null) {
 
-            ref = FirebaseStorage.getInstance().getReference().child("/" +  username + ".jpeg");
+            storageReference.delete();
 
-            ref.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            storageReference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Toast.makeText(getActivity(),"Image uploaded",Toast.LENGTH_SHORT).show();

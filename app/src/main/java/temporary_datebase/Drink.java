@@ -14,12 +14,12 @@ public class Drink {
     public int id;
     public String description;
     public List<String> goesWith;
-
+    String goesWithMeals;
 
     public Drink(){
     }
 
-    public Drink(String name, String type, String country, float rating, float price, int ratingAmount, int id, String description, List<String> goesWith) {
+    public Drink(String name, String type, String country, float rating, float price, int ratingAmount, int id, String description, List<String> goesWith, String goesWithMeals) {
         this.name = name;
         this.type = type;
         this.country = country;
@@ -30,6 +30,7 @@ public class Drink {
         this.img = id + ".png";
         this.description = description;
         this.goesWith = goesWith;
+        this.goesWithMeals = goesWithMeals;
     }
 
     public String getName(){ return name; }
@@ -42,6 +43,7 @@ public class Drink {
     public int getRatingAmount(){return ratingAmount;}
     public float getPrice() {return price;}
     public List<String> getGoesWith() {return goesWith;}
+    public String getGoesWithMeals(){return goesWithMeals;}
 
     public void setRating(float rating){ this.rating = rating; }
     public void setName(String name){this.name = name;}
@@ -50,7 +52,8 @@ public class Drink {
     public void setImg(String img) { this.img = img; }
     public void setPrice(float price) { this.price = price; }
     public void setRatingAmount(int ratingAmount) { this.ratingAmount = ratingAmount; }
-    public void setDecription(String decription) {this.description = decription;}
+    public void setDescription(String description) {this.description = description;}
     public void setId(int id) {this.id = id;}
+    public void setGoesWithMeals(String goesWith) {this.goesWithMeals = goesWith;}
     public void setGoesWith(List<String> goesWith) {this.goesWith = goesWith;}
 }

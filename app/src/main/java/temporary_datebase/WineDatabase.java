@@ -36,8 +36,8 @@ public class WineDatabase {
 
     private WineDatabase() {}
 
-    public void addWine(String name, String type, String country, float rating, float price, int ratingAmount, int id, String description, List<String> goesWith) {
-        drinks.add(new Drink(name, type, country, rating, price, ratingAmount, id, description, goesWith));
+    public void addWine(String name, String type, String country, float rating, float price, int ratingAmount, int id, String description, List<String> goesWith, String goesWithMeals) {
+        drinks.add(new Drink(name, type, country, rating, price, ratingAmount, id, description, goesWith, goesWithMeals));
 
     }
 
@@ -116,9 +116,9 @@ public class WineDatabase {
                     String country = snapshot.child("country").getValue(String.class);
                     int price = snapshot.child("price").getValue(Integer.class);
                     int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
-                    String s = snapshot.child("goesWithMeals").getValue(String.class);
-                    char[] c = s.toCharArray();
                     List<String> goesWith = new ArrayList<>();
+                    String goesWithMeals = snapshot.child("goesWithMeals").getValue(String.class);
+                    char[] c = goesWithMeals.toCharArray();
 
                     if(c[0]== '1'){
                         goesWith.add("Beef");
@@ -139,7 +139,7 @@ public class WineDatabase {
                         goesWith.add("Shellfish");
                     }
 
-                    instance.addWine(name, type, country, rating, price, ratingAmount, id, description, goesWith);
+                    instance.addWine(name, type, country, rating, price, ratingAmount, id, description, goesWith, goesWithMeals);
                 }
             }
             @Override
