@@ -208,6 +208,7 @@ public class WineActivity extends AppCompatActivity {
                                                 wines.put("price", drink.getPrice());
                                                 wines.put("ratingAmount", drink.getRatingAmount());
                                                 wines.put("description", drink.getDescription());
+                                                wines.put("goesWithMeals", drink.getGoesWithMeals());
                                                 myRef.child(drink.getName()).setValue(wines);
                                             }
                                         }
