@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RatingBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +55,7 @@ public class WineActivity extends AppCompatActivity {
 
     WineDatabase wineDatabase;
     TextView titleWineTextView;
+    ScrollView wineDescriptionBox;
     TextView wineDescriptionText, wineTypeText, wineVolumeText, wineCountryText;
     ImageView wineImageView;
     RatingBar wineRatingBar;
@@ -76,6 +78,7 @@ public class WineActivity extends AppCompatActivity {
 
         titleWineTextView = (TextView) findViewById(R.id.titleWineTextView);
 
+        wineDescriptionBox = (ScrollView) findViewById(R.id.wineDescriptionScrollView);
         wineDescriptionText = (TextView) findViewById(R.id.wineDescriptionTextView);
         wineTypeText = (TextView) findViewById(R.id.wineTypeTextView);
         wineVolumeText = (TextView) findViewById(R.id.wineVolumeTextView);
@@ -92,7 +95,15 @@ public class WineActivity extends AppCompatActivity {
 
         if(drink != null) {
             titleWineTextView.setText(wineTitle);
-            wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ultricies felis ipsum, nec suscipit purus tempor at. ");
+            if (drink.description != null) {
+
+                wineDescriptionText.setText(drink.description);
+
+            } else {
+
+                wineDescriptionText.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.");
+            }
+
             Glide.with(this).load(storageReference).into(wineImageView);
             wineRatingBar.setRating(drink.rating);
             wineTypeText.setText(drink.type);
