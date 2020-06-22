@@ -1,6 +1,7 @@
 package com.example.andreas.cork;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,16 +18,23 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.util.UUID;
 
 /**
  * Created by andreas on 11/06/2020.
@@ -36,7 +44,14 @@ public class UserFragment extends Fragment {
     final String TAG = "CORK_N_FORK";
     ImageView profileImage;
     Button changeProfileImage;
+
     StorageReference storageReference;
+    FirebaseUser user;
+    FirebaseAuth fAuth;
+    FirebaseFirestore fStore;
+    private Uri filePath;
+    String username;
+    StorageReference ref;
 
     @Nullable
     @Override
@@ -52,15 +67,15 @@ public class UserFragment extends Fragment {
         profileImage = (ImageView) view.findViewById(R.id.profileImageView);
         changeProfileImage = (Button) view.findViewById(R.id.changeProfile);
 
+        fAuth = FirebaseAuth.getInstance();
+        fStore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
         //get username
         Log.d(TAG, "username from preference: " + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND")+ " at activity: " + getContext().toString());
         SharedPreferences pref = this.getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
         usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND"));
-
-        Uri photoUrl = mAuth.getCurrentUser().getPhotoUrl();
-
-        //storageReference = FirebaseStorage.getInstance().getReference().child(photoUrl);
-        Glide.with(this).load(storageReference).into(profileImage);
+        username = PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND");
 
         favorites.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -109,13 +124,40 @@ public class UserFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Log.i(TAG,"her1");
+
+
         if(requestCode == 1000) {
             Log.i(TAG,"her2");
             if(resultCode == Activity.RESULT_OK) {
 
-                Glide.with(this).load(storageReference).into(profileImage);
-                Log.i(TAG,"her3");
+                Uri imageUri = data.getData();
+                uploadImageToFirebase(imageUri);
+
+                profileImage.setImageURI(imageUri);
             }
         }
+    }
+
+    private void uploadImageToFirebase(Uri imageUri) {
+
+        if(imageUri != null) {
+
+            ref = FirebaseStorage.getInstance().getReference().child("images/" +  username + ".jpeg");
+
+            ref.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    Toast.makeText(getActivity(),"Image uploaded",Toast.LENGTH_SHORT).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getActivity(),"Image upload failed" + e.getMessage(),Toast.LENGTH_SHORT).show();
+                }
+            });
+
+        }
+
+
     }
 }
