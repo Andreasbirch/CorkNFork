@@ -97,5 +97,6 @@
         <item>Det kan være svært at generalisere med rosé, men de fleste roséer passer godt med smagsrige eller vegetariske måltider</item>
         <item>På grund af den skarpe alkohol fra whiskeyen, vil man gerne have fedtholdige måltider til at dæmpe smagen. Derfor komplementerer whiskey oksekød </item>
     </string-array>
+    <string name="title_change_profile_picture">Skift profilbillede</string>
 
 </resources>

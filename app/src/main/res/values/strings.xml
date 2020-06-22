@@ -11,6 +11,7 @@
     <string name="title_log_in">Log in</string>
     <string name="title_sign_up">Sign up</string>
     <string name="title_my_favorite">My favorites</string>
+    <string name="title_change_profile_picture">Change profile picture</string>
 
     <string name="username">Username</string>
     <string name="password">Password</string>
