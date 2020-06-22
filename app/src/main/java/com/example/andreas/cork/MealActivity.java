@@ -32,10 +32,9 @@ public class MealActivity extends AppCompatActivity {
     String currentDirectory;
 
     public void updateData(){
-
         //SETTING UP THE DATABASE
-        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
-        wineDatabase = WineDatabase.getInstance();
+       DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+
         db.child("drinks").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -46,8 +45,12 @@ public class MealActivity extends AppCompatActivity {
                     float rating = snapshot.child("rating").getValue(Float.class);
                     String type = snapshot.child("type").getValue(String.class);
                     int id = snapshot.child("id").getValue(Integer.class);
+                    String description = snapshot.child("description").getValue(String.class);
+                    String country = snapshot.child("country").getValue(String.class);
+                    int price = snapshot.child("price").getValue(Integer.class);
+                    int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
 
-                    wineDatabase.addWine(name, rating, type, id);
+                    wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description);
                 }
 
                 //Display data
@@ -63,13 +66,16 @@ public class MealActivity extends AppCompatActivity {
                         startActivity(showWineActivity);
                     }
                 });
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
+
         });
+
         //END
     }
 
@@ -77,6 +83,7 @@ public class MealActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //Database setup
+        wineDatabase = WineDatabase.getInstance();
         updateData();
 
         setContentView(R.layout.activity_meal);

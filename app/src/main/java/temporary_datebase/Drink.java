@@ -10,20 +10,13 @@ public class Drink {
     public int ratingAmount;
     public String img;
     public int id;
+    public String description;
 
 
     public Drink(){
     }
 
-    public Drink(String name, float rating, String type, int id){
-        this.name = name;
-        this.rating = rating;
-        this.type = type;
-        this.id = id;
-        this.img = id + ".png";
-    }
-
-    public Drink(String name, String type, String country, float rating, float price, int ratingAmount, int id) {
+    public Drink(String name, String type, String country, float rating, float price, int ratingAmount, int id, String description) {
         this.name = name;
         this.type = type;
         this.country = country;
@@ -32,15 +25,18 @@ public class Drink {
         this.ratingAmount = ratingAmount;
         this.id = id;
         this.img = id + ".png";
+        this.description = description;
     }
 
     public String getName(){ return name; }
     public float getRating(){ return rating; }
     public String getType(){return type;}
     public String getImg(){return img;}
-    public String getCountry() {
-        return  country;
-    }
+    public String getCountry() {return  country;}
+    public int getId() {return id;}
+    public String getDescription() {return this.description;}
+    public int getRatingAmount(){return ratingAmount;}
+    public float getPrice() {return price;}
 
     public void setRating(float rating){ this.rating = rating; }
     public void setName(String name){this.name = name;}
@@ -49,4 +45,6 @@ public class Drink {
     public void setImg(String img) { this.img = img; }
     public void setPrice(float price) { this.price = price; }
     public void setRatingAmount(int ratingAmount) { this.ratingAmount = ratingAmount; }
+    public void setDecription(String decription) {this.description = decription;}
+    public void setId(int id) {this.id = id;}
 }

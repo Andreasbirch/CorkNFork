@@ -134,8 +134,11 @@ public class SettingsFragment extends Fragment {
         docData.put("isAllergicToShellfish", isAllergicToShellfishBool);
         docData.put("searchPreference", searchPreferenceIndex);
 
-        db.collection("users").document(mAuth.getUid()).set(docData, SetOptions.merge());
+        try{
+            db.collection("users").document(mAuth.getUid()).set(docData, SetOptions.merge());
+        } catch (NullPointerException e){
 
+        }
 
         super.onPause();
     }
