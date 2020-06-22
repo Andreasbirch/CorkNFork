@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -41,9 +42,11 @@ public class UserFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
+
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         View view = inflater.inflate(R.layout.fragment_user, container, false);
+        view.setBackgroundColor(Color.WHITE);
 
         final Button logOut = (Button) view.findViewById(R.id.logoutButton);
         final Button favorites = (Button) view.findViewById(R.id.myFavorites);

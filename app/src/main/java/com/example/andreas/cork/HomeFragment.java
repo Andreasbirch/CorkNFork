@@ -1,5 +1,6 @@
 package com.example.andreas.cork;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -24,6 +25,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
 
         Button gotoMealtypeSelect = (Button) view.findViewById(R.id.goto_mealtype_select);
         Button gotoWinetypeSelect = (Button) view.findViewById(R.id.goto_winetype_select);
