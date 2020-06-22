@@ -8,25 +8,47 @@
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/drinkTitleTextView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="47dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
-        android:text="Wine type"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+        android:layout_marginEnd="20dp"
+        android:orientation="horizontal">
 
-    <ImageView
-        android:id="@+id/drinkImageView"
-        android:layout_width="195dp"
-        android:layout_height="54dp"
-        app:srcCompat="@drawable/ic_drinktype_redwine" />
+        <ImageView
+            android:id="@+id/drinkImageView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            app:srcCompat="@drawable/ic_drinktype_redwine" />
+
+        <TextView
+            android:id="@+id/drinkTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:text="Wine type"
+            android:textAlignment="center"
+            android:textSize="24sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/title_we_would_recommend_meal" />
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:background="#00FFFFFF"
         android:baselineAligned="false"
         android:gravity="center_horizontal">
@@ -34,85 +56,40 @@
         <TableRow
             android:id="@+id/tableRow1"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
 
             <Button
-                android:id="@+id/food1"
+                android:id="@+id/btn_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="10dp"
                 android:drawableTop="@drawable/ic_mealtype_beef"
-                android:visibility="invisible"
-                android:text="Beef" />
+                android:text="@string/mealtype_beef"
+                android:visibility="visible" />
 
             <Button
-                android:id="@+id/food2"
+                android:id="@+id/btn_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
                 android:drawableTop="@drawable/ic_mealtype_pork"
-                android:visibility="invisible"
-                android:text="Pork" />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/food3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_poultry"
-                android:visibility="invisible"
-                android:text="Poultry" />
-
-            <Button
-                android:id="@+id/food4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_fish"
-                android:visibility="invisible"
-                android:text="Fish" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow3"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/food5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_vegan"
-                android:visibility="invisible"
-                android:text="Vegan" />
-
-            <Button
-                android:id="@+id/food6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:drawableTop="@drawable/ic_mealtype_shellfish"
-                android:visibility="invisible"
-                android:text="Shellfish" />
-
+                android:visibility="invisible" />
         </TableRow>
 
     </TableLayout>
 
     <TextView
         android:id="@+id/drinkDescriptionTextView"
-        android:layout_width="359dp"
-        android:layout_height="120dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
         android:text="TextView"
         android:textSize="18sp" />
 

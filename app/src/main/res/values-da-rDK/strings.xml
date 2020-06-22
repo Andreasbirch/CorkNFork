@@ -16,37 +16,6 @@
     <string name="mealtype_vegan">Vegansk</string>
     <string name="mealtype_shellfish">Skaldyr</string>
     <string name="mealtype_poultry">Fjerkræ</string>
-
-
-
-
-
-
-    <string-array name="select_sort_items">
-        <item><string name="select_sort_items_highest_rated">Højest bedømt</string></item>
-        <item><string name="select_sort_items_low_high">Pris lav-høj</string></item>
-        <item><string name="select_sort_items_high_low">Pris høj-lav</string></item>
-        <item><string name="select_sort_items_categorical">Kategorisk</string></item>
-        <item><string name="select_sort_items_Alphabetical">Alfabetisk</string></item>
-    </string-array>
-
-    <string-array name="meal_activity_titles">
-        <item> <string name="meal_activity_title_Beef">Spiser du oksekød? Lækkert!</string></item>
-        <item> <string name="meal_activity_title_Pork">Spiser du svinekød? Godt valg!</string></item>
-        <item> <string name="meal_activity_title_Poultry">Spiser du fjerkræ? Ikke dårligt!</string></item>
-        <item> <string name="meal_activity_title_Vegan">Spiser du vegansk? Sundt!</string></item>
-        <item> <string name="meal_activity_title_Fish">Spiser du fisk? Mums!</string></item>
-        <item> <string name="meal_activity_title_Shellfish">Spiser du skaldyr? Nogen er rig!</string></item>
-    </string-array>
-
-    <string-array name="meal_activity_descriptions">
-        <item><string name="meal_activity_descriptions_Beef">Retter med fokus på oksekød komplementeres godt med en rødvin</string></item>
-        <item><string name="meal_activity_descriptions_Pork">Retter med fokus på svinekød komplementeres godt med en rødvin</string></item>
-        <item><string name="meal_activity_descriptions_Poultry">Retter med fjerkræ komplementeres godt med enten rød- eller hvidvin</string></item>
-        <item><string name="meal_activity_descriptions_Vegan">Veganske retter komplementeres godt med vand</string></item>
-        <item><string name="meal_activity_descriptions_Fish">Retter med fisk komplementeres godt med en hvidvin</string></item>
-        <item><string name="meal_activity_descriptions_Shellfish">Retter med skaldyr komplementeres godt med en hvidvin eller champagne</string></item>
-    </string-array>
     <string name="title_log_out">Log ud</string>
     <string name="title_log_in">Log in</string>
     <string name="title_sign_up">Opret bruger</string>
@@ -80,4 +49,53 @@
     <string name="toast_drink_added_to_favorites">Drink tilføjet til favoritter</string>
     <string name="toast_drink_removed_from_favorites">Drink fjernet fra favoritter</string>
     <string name="toast_thanks_for_rating">Tak for din bedømmelse!</string>
+    <string name="title_we_would_recommend_meal">Vi anbefaler følgende måltider til denne drink</string>
+
+
+
+
+
+    <string-array name="select_sort_items">
+        <item><string name="select_sort_items_highest_rated">Højest bedømt</string></item>
+        <item><string name="select_sort_items_low_high">Pris lav-høj</string></item>
+        <item><string name="select_sort_items_high_low">Pris høj-lav</string></item>
+        <item><string name="select_sort_items_categorical">Kategorisk</string></item>
+        <item><string name="select_sort_items_Alphabetical">Alfabetisk</string></item>
+    </string-array>
+
+    <string-array name="meal_activity_titles">
+        <item> <string name="meal_activity_title_Beef">Spiser du oksekød? Lækkert!</string></item>
+        <item> <string name="meal_activity_title_Pork">Spiser du svinekød? Godt valg!</string></item>
+        <item> <string name="meal_activity_title_Poultry">Spiser du fjerkræ? Ikke dårligt!</string></item>
+        <item> <string name="meal_activity_title_Vegan">Spiser du vegansk? Sundt!</string></item>
+        <item> <string name="meal_activity_title_Fish">Spiser du fisk? Mums!</string></item>
+        <item> <string name="meal_activity_title_Shellfish">Spiser du skaldyr? Nogen er rig!</string></item>
+    </string-array>
+
+    <string-array name="meal_activity_descriptions">
+        <item><string name="meal_activity_descriptions_Beef">Retter med fokus på oksekød komplementeres godt med en rødvin</string></item>
+        <item><string name="meal_activity_descriptions_Pork">Retter med fokus på svinekød komplementeres godt med en rødvin</string></item>
+        <item><string name="meal_activity_descriptions_Poultry">Retter med fjerkræ komplementeres godt med enten rød- eller hvidvin</string></item>
+        <item><string name="meal_activity_descriptions_Vegan">Veganske retter komplementeres godt med vand</string></item>
+        <item><string name="meal_activity_descriptions_Fish">Retter med fisk komplementeres godt med en hvidvin</string></item>
+        <item><string name="meal_activity_descriptions_Shellfish">Retter med skaldyr komplementeres godt med en hvidvin eller champagne</string></item>
+    </string-array>
+
+    <string-array name="drink_activity_titles">
+        <item> Rødvin? Klassisk! </item>
+        <item> Hvidvin? Skønt!</item>
+        <item> Mousserende? Brusende er vejen fem!</item>
+        <item> Rosé? Fancy!</item>
+        <item> Whiskey? Modigt!</item>
+    </string-array>
+
+    <string-array name="drink_activity_descriptions">
+        <item>På grund af store mængder af tanniner i rødvin, som giver bitterheden, og som komplementerer fedtholdige måltider, smager rødvin godt til oksekød</item>
+        <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til fisk </item>
+        <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til fisk </item>
+        <item>På grund af boblerne passer mousserende vin eller champagne godt til skaldyr og appetisere</item>
+        <item>Det kan være svært at generalisere med rosé, men de fleste roséer passer godt med smagsrige eller vegetariske måltider</item>
+        <item>På grund af den skarpe alkohol fra whiskeyen, vil man gerne have fedtholdige måltider til at dæmpe smagen. Derfor komplementerer whiskey oksekød </item>
+    </string-array>
+
 </resources>
