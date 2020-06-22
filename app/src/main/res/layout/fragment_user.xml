@@ -11,14 +11,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/usernameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_weight="0.3"
             android:text="@string/username"
             android:textAlignment="center"
             android:textSize="28dp" />
@@ -34,9 +34,10 @@
         <ImageView
             android:id="@+id/profileImageView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
+            android:adjustViewBounds="true"
             android:src="@drawable/avatar" />
 
         <Button
@@ -45,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginEnd="52dp"
-            android:text="Change profile picture" />
+            android:text="@string/title_change_profile_picture" />
 
         <Button
             android:id="@+id/myFavorites"

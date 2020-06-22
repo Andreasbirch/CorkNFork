@@ -11,6 +11,7 @@
     <string name="title_log_in">Log in</string>
     <string name="title_sign_up">Sign up</string>
     <string name="title_my_favorite">My favorites</string>
+    <string name="title_change_profile_picture">Change profile picture</string>
 
     <string name="username">Username</string>
     <string name="password">Password</string>
@@ -100,7 +101,8 @@
 
     <string-array name="drink_activity_descriptions">
         <item> Because of the high amounts of tannins in red wine, which causes bitterness and complements fatty foods, red wine tastes good with beef</item>
-        <item> Because of a lower amount of tannins in white wine, white usually pairs well with chicken and fish</item>
+        <item> Because of a lower amount of tannins in white wine, white usually pairs well with fish</item>
+        <item> Because of a lower amount of tannins in white wine, white usually pairs well with chicken</item>
         <item> Because of its bubbles, sparkling is generally paired with shellfish and appetisers. </item>
         <item> It is hard to generalize with rosé, but most rosés pair well with strong food or vegetarian foods.</item>
         <item> Because of the alcohol burn from whiskey, you want fatty foods to mute the burn. So a good pairing for whiskey is beef, or even chocolate. </item>

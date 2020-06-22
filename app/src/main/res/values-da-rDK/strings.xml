@@ -7,7 +7,7 @@
     <string name="title_find">Find en:</string>
     <string name="title_meal">Ret</string>
     <string name="title_wine">Vin</string>
-    <string name="username">Burgernavn</string>
+    <string name="username">Brugernavn</string>
     <string name="title_mealtypeselect">Hvad skal du spise?</string>
     <string name="title_winetypeselect">Hvad skal du drikke?</string>
     <string name="mealtype_beef">Oksekød</string>
@@ -92,10 +92,11 @@
     <string-array name="drink_activity_descriptions">
         <item>På grund af store mængder af tanniner i rødvin, som giver bitterheden, og som komplementerer fedtholdige måltider, smager rødvin godt til oksekød</item>
         <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til fisk </item>
-        <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til fisk </item>
+        <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til kylling </item>
         <item>På grund af boblerne passer mousserende vin eller champagne godt til skaldyr og appetisere</item>
         <item>Det kan være svært at generalisere med rosé, men de fleste roséer passer godt med smagsrige eller vegetariske måltider</item>
         <item>På grund af den skarpe alkohol fra whiskeyen, vil man gerne have fedtholdige måltider til at dæmpe smagen. Derfor komplementerer whiskey oksekød </item>
     </string-array>
+    <string name="title_change_profile_picture">Skift profilbillede</string>
 
 </resources>
