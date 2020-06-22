@@ -23,6 +23,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import temporary_datebase.Drink;
 import temporary_datebase.WineDatabase;
 
@@ -78,9 +81,12 @@ Drink drink;
                                                              String country = snapshot.child("country").getValue(String.class);
                                                              int price = snapshot.child("price").getValue(Integer.class);
                                                              int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
+                                                             String goesWithMeals = snapshot.child("goesWithMeals").getValue(String.class);
 
-                                                             //TODO max sry addWine skal nu tage alle 8 fields
-                                                             wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description);
+                                                             char[] c = goesWithMeals.toCharArray();
+                                                             List<String> goesWith = new ArrayList<>();
+
+                                                             wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description, goesWith, goesWithMeals);
                                                          }
 
                                                      }

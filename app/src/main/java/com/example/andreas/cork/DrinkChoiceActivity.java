@@ -70,7 +70,12 @@ public class DrinkChoiceActivity extends AppCompatActivity {
 
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_beef, 0 ,0);
+            rightButton = (Button) findViewById(R.id.btn_right);
+            rightButton.setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.ic_mealtype_pork,0,0);
+            rightButton.setText("Pork");
             leftButtonListener(descriptions[0]);
+            rightButtonListener(descriptions[1]);
+            rightButton.setVisibility(View.VISIBLE);
 
         } else if(currentDirectory.equals("whitewine")) {
             titleTextView.setText(titles[1]);
@@ -79,12 +84,12 @@ public class DrinkChoiceActivity extends AppCompatActivity {
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_fish, 0 ,0);
             leftButton.setText(R.string.mealtype_fish);
-            leftButtonListener(descriptions[1]);
+            leftButtonListener(descriptions[2]);
 
             rightButton = (Button) findViewById(R.id.btn_right);
             rightButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_poultry, 0 ,0);
             rightButton.setText(R.string.mealtype_poultry);
-            rightButtonListener(descriptions[2]);
+            rightButtonListener(descriptions[3]);
             rightButton.setVisibility(View.VISIBLE);
 
         } else if(currentDirectory.equals("champagne")) {
@@ -94,7 +99,7 @@ public class DrinkChoiceActivity extends AppCompatActivity {
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_shellfish, 0 ,0);
             leftButton.setText(R.string.mealtype_shellfish);
-            leftButtonListener(descriptions[3]);
+            leftButtonListener(descriptions[4]);
 
         } else if(currentDirectory.equals("rosewine")) {
             titleTextView.setText(titles[3]);
@@ -103,7 +108,7 @@ public class DrinkChoiceActivity extends AppCompatActivity {
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_vegan, 0 ,0);
             leftButton.setText(R.string.mealtype_vegan);
-            leftButtonListener(descriptions[4]);
+            leftButtonListener(descriptions[5]);
 
         } else if(currentDirectory.equals("whiskey")) {
             titleTextView.setText(titles[4]);
@@ -112,7 +117,7 @@ public class DrinkChoiceActivity extends AppCompatActivity {
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_beef, 0 ,0);
             leftButton.setText(R.string.mealtype_beef);
-            leftButtonListener(descriptions[5]);
+            leftButtonListener(descriptions[6]);
 
         }
     }

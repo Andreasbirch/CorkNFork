@@ -6,7 +6,7 @@
     <string name="title_user">Bruger</string>
     <string name="title_find">Find en:</string>
     <string name="title_meal">Ret</string>
-    <string name="title_wine">Vin</string>
+    <string name="title_wine">Drink</string>
     <string name="username">Brugernavn</string>
     <string name="title_mealtypeselect">Hvad skal du spise?</string>
     <string name="title_winetypeselect">Hvad skal du drikke?</string>
@@ -91,6 +91,7 @@
 
     <string-array name="drink_activity_descriptions">
         <item>På grund af store mængder af tanniner i rødvin, som giver bitterheden, og som komplementerer fedtholdige måltider, smager rødvin godt til oksekød</item>
+        <item> På grund af den søde smag i svinekød, smager lysere rødvine med mere frugtsmag godt med svinekød.</item>
         <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til fisk </item>
         <item>På grund af lavere mængder af tanninger i hvidvin, parres hvidvin godt til kylling </item>
         <item>På grund af boblerne passer mousserende vin eller champagne godt til skaldyr og appetisere</item>
