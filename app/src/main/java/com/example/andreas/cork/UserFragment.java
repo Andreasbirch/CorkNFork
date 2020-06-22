@@ -69,13 +69,18 @@ public class UserFragment extends Fragment {
 
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-        storageReference = FirebaseStorage.getInstance().getReference();
+
 
         //get username
         Log.d(TAG, "username from preference: " + PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND")+ " at activity: " + getContext().toString());
         SharedPreferences pref = this.getActivity().getSharedPreferences("username", Context.MODE_PRIVATE);
         usernameDisplay.setText(PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND"));
         username = PreferenceManager.getDefaultSharedPreferences(getContext()).getString("username", "USERNAME_NOT_FOUND");
+        storageReference = FirebaseStorage.getInstance().getReference().child("/" + username + ".jpeg");
+
+        if(storageReference != null) {
+            Glide.with(view).load(storageReference).into(profileImage);
+        }
 
         favorites.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -96,7 +101,7 @@ public class UserFragment extends Fragment {
                 mAuth.signOut();
 
                 Toast.makeText(getActivity(), R.string
-                        .toast_you_have_been_logged_out,
+                                .toast_you_have_been_logged_out,
                         Toast.LENGTH_SHORT).show();
                 //go back
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
@@ -142,7 +147,7 @@ public class UserFragment extends Fragment {
 
         if(imageUri != null) {
 
-            ref = FirebaseStorage.getInstance().getReference().child("images/" +  username + ".jpeg");
+            ref = FirebaseStorage.getInstance().getReference().child("/" +  username + ".jpeg");
 
             ref.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -157,7 +162,5 @@ public class UserFragment extends Fragment {
             });
 
         }
-
-
     }
 }
