@@ -46,8 +46,9 @@ public class MealActivity extends AppCompatActivity {
                     float rating = snapshot.child("rating").getValue(Float.class);
                     String type = snapshot.child("type").getValue(String.class);
                     int id = snapshot.child("id").getValue(Integer.class);
+                    String description = snapshot.child("description").getValue(String.class);
 
-                    wineDatabase.addWine(name, rating, type, id);
+                    wineDatabase.addWine(name, rating, type, id, description);
                 }
 
                 //Display data
