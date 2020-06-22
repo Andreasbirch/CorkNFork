@@ -13,12 +13,17 @@ import androidx.fragment.app.Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
+import temporary_datebase.WineDatabase;
+
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    WineDatabase wineDatabase = WineDatabase.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        wineDatabase.refresh();
 
         BottomNavigationView bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomNavigation.setSelectedItemId(R.id.navigation_home);
