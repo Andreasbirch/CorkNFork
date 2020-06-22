@@ -16,7 +16,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import temporary_datebase.WineDatabase;
 
@@ -33,7 +39,7 @@ public class MealActivity extends AppCompatActivity {
 
     public void updateData(){
         //SETTING UP THE DATABASE
-       DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+       final DatabaseReference db = FirebaseDatabase.getInstance().getReference();
 
         db.child("drinks").addValueEventListener(new ValueEventListener() {
             @Override
@@ -50,7 +56,30 @@ public class MealActivity extends AppCompatActivity {
                     int price = snapshot.child("price").getValue(Integer.class);
                     int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
 
-                    wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description);
+                    String s = snapshot.child("goesWithMeals").getValue(String.class);
+                    char[] c = s.toCharArray();
+                    List<String> goesWith = new ArrayList<>();
+
+                    if(c[0]== '1'){
+                        goesWith.add("Beef");
+                    }
+                    if(c[1]== '1'){
+                        goesWith.add("Pork");
+                    }
+                    if(c[2]== '1'){
+                        goesWith.add("Poultry");
+                    }
+                    if(c[3]== '1'){
+                        goesWith.add("Vegetarian");
+                    }
+                    if(c[4]== '1'){
+                        goesWith.add("Fish");
+                    }
+                    if(c[5]== '1'){
+                        goesWith.add("Shellfish");
+                    }
+
+                    wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description, goesWith);
                 }
 
                 //Display data
