@@ -75,8 +75,12 @@ Drink drink;
                                                              String type = snapshot.child("type").getValue(String.class);
                                                              int id = snapshot.child("id").getValue(Integer.class);
                                                              String description = snapshot.child("description").getValue(String.class);
+                                                             String country = snapshot.child("country").getValue(String.class);
+                                                             int price = snapshot.child("price").getValue(Integer.class);
+                                                             int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
+
                                                              //TODO max sry addWine skal nu tage alle 8 fields
-                                                             //wineDatabase.addWine(name, rating, type, id,description);
+                                                             wineDatabase.addWine(name, type, country, rating, price, ratingAmount, id, description);
                                                          }
 
                                                      }
