@@ -40,7 +40,6 @@ public class ChooseDrinktypeFragment extends Fragment {
         Button select_champagne = (Button) view.findViewById(R.id.select_champagne);
         Button select_whiskey = (Button) view.findViewById(R.id.select_whiskey);
 
-
         searchDrinks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
