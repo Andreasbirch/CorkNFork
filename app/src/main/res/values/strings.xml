@@ -82,12 +82,12 @@
     </string-array>
 
     <string-array name="meal_activity_descriptions">
-        <item><string name="meal_activity_descriptions_Beef">Dishes that focuses on beef will primarily use a red wine to complement the dish</string></item>
-        <item><string name="meal_activity_descriptions_Pork">Dishes that focuses on pork will primarily use a red wine to complement the dish</string></item>
-        <item><string name="meal_activity_descriptions_Poultry">Dishes that focuses on poultry will either use a white or a red wine to complement the dish</string></item>
-        <item><string name="meal_activity_descriptions_Vegan">Dishes that focuses on vegetables will primarily use water to complement the dish</string></item>
-        <item><string name="meal_activity_descriptions_Fish">Dishes that focuses on fish will primarily use a white wine to complement the dish</string></item>
-        <item><string name="meal_activity_descriptions_Shellfish">Dishes that focuses on shellfish will primarily use a white wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Beef">Dishes that focus on beef will primarily use a red wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Pork">Dishes that focus on pork will primarily use a red wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Poultry">Dishes that focus on poultry will either use a white or a red wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Vegan">Dishes that focus on vegetables will primarily use water to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Fish">Dishes that focus on fish will primarily use a white wine to complement the dish</string></item>
+        <item><string name="meal_activity_descriptions_Shellfish">Dishes that focus on shellfish will primarily use a white wine to complement the dish</string></item>
     </string-array>
 
     <string-array name="drink_activity_titles">
@@ -99,10 +99,9 @@
     </string-array>
 
     <string-array name="drink_activity_descriptions">
-        <item> Because of high amount of tannins in red wine, which causes bitterness and complements fatty foods, red wine tastes good with beef</item>
-        <item> Because of a lower amount of tannins in white wine, white usually pairs well with fish </item>
-        <item> Because of a lower amount of tannins in white wine, white usually pairs well with poultry </item>
-        <item> Because of its bubbles, sparkling wine or champagne is generally paired with shellfish and appetisers. </item>
+        <item> Because of the high amounts of tannins in red wine, which causes bitterness and complements fatty foods, red wine tastes good with beef</item>
+        <item> Because of a lower amount of tannins in white wine, white usually pairs well with chicken and fish</item>
+        <item> Because of its bubbles, sparkling is generally paired with shellfish and appetisers. </item>
         <item> It is hard to generalize with rosé, but most rosés pair well with strong food or vegetarian foods.</item>
         <item> Because of the alcohol burn from whiskey, you want fatty foods to mute the burn. So a good pairing for whiskey is beef, or even chocolate. </item>
     </string-array>

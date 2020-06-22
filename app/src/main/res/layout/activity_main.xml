@@ -5,6 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context="com.example.andreas.cork.MainActivity">
 
@@ -19,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:menu="@menu/navigationbar"/>
+        android:background="#FFFFFF"
+        app:menu="@menu/navigationbar" />
 
 </RelativeLayout>
