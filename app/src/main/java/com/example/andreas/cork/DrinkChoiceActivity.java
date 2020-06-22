@@ -93,7 +93,7 @@ public class DrinkChoiceActivity extends AppCompatActivity {
 
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_shellfish, 0 ,0);
-            leftButton.setText(R.string.mealtype_fish);
+            leftButton.setText(R.string.mealtype_shellfish);
             leftButtonListener(descriptions[3]);
 
         } else if(currentDirectory.equals("rosewine")) {
@@ -102,7 +102,7 @@ public class DrinkChoiceActivity extends AppCompatActivity {
 
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_vegan, 0 ,0);
-            leftButton.setText(R.string.mealtype_fish);
+            leftButton.setText(R.string.mealtype_vegan);
             leftButtonListener(descriptions[4]);
 
         } else if(currentDirectory.equals("whiskey")) {
@@ -111,18 +111,12 @@ public class DrinkChoiceActivity extends AppCompatActivity {
 
             leftButton = (Button) findViewById(R.id.btn_left);
             leftButton.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.ic_mealtype_beef, 0 ,0);
-            leftButton.setText(R.string.mealtype_fish);
+            leftButton.setText(R.string.mealtype_beef);
             leftButtonListener(descriptions[5]);
 
         }
     }
 
-    /*@Override
-    protected void onResume() {
-        super.onResume();
-
-
-    }*/
     private void leftButtonListener(final String inputString){
         descriptionTextView.setText(inputString);
         leftButton.setOnClickListener(new View.OnClickListener() {
