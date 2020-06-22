@@ -23,29 +23,36 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.Inflater;
 
 import temporary_datebase.Drink;
+import temporary_datebase.WineDatabase;
 
 public class FavoritesFragment extends Fragment {
-
-
+    WineDatabase wineDatabase = WineDatabase.getInstance();
+    ListView myListView;
+    final String TAG = "CORK_N_FORK";
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    View v;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_favorites, container, false);
-
-        final ListView myListView = (ListView) view.findViewById(R.id.mListViewFav);
-        final String TAG = "CORK_N_FORK";
-
+        this.v = view;
         super.onCreate(savedInstanceState);
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
+        return view;
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        wineDatabase.refresh();
 
-
+        myListView  = (ListView) v.findViewById(R.id.mListViewFav);
 
         //Get list of favorites s
         db.collection("users").document(mAuth.getUid()).collection("favorites").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -62,6 +69,17 @@ public class FavoritesFragment extends Fragment {
                     MealActivitiyAdapter mealActivitiyAdapter = new MealActivitiyAdapter(getContext(),favorites);
                     myListView.setAdapter(mealActivitiyAdapter);
 
+                    myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                            Intent showWineActivity = new Intent(getActivity(), WineActivity.class);
+                            String itemValue = (String) myListView.getItemAtPosition(i);
+                            showWineActivity.putExtra("com.example.andreas.cork.WINE", itemValue);
+                            startActivity(showWineActivity);
+                        }
+                    });
+
+
                 } else {
                     Log.w(TAG, "Error getting documents.", task.getException());
                 }
@@ -69,7 +87,5 @@ public class FavoritesFragment extends Fragment {
         });
 
 
-
-        return view;
     }
 }

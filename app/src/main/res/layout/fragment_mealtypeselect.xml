@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:background="#00FFFFFF"
             android:gravity="center"
-            android:onClick="tableOnClick">
+            >
 
             <TableRow
                 android:id="@+id/tableRow1"

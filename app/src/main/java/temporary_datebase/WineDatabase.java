@@ -1,6 +1,16 @@
 package temporary_datebase;
 
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.example.andreas.cork.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class WineDatabase {
@@ -24,8 +34,9 @@ public class WineDatabase {
 
     private WineDatabase() {}
 
-    public void addWine(String name, float rating, String type, int id, String description) {
-        drinks.add(new Drink(name, rating, type, id, description));
+    public void addWine(String name, String type, String country, float rating, float price, int ratingAmount, int id, String description) {
+        drinks.add(new Drink(name, type, country, rating, price, ratingAmount, id, description));
+
     }
 
     public ArrayList<Drink> getWinesThatGoWith(String category) {
@@ -85,6 +96,31 @@ public class WineDatabase {
         }
 
         return null;
+    }
+
+    public void refresh() {
+        instance.restartDatabase();
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference();
+        db.child("drinks").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // add wines from firebase
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String name = snapshot.child("name").getValue(String.class);
+                    float rating = snapshot.child("rating").getValue(Float.class);
+                    String type = snapshot.child("type").getValue(String.class);
+                    int id = snapshot.child("id").getValue(Integer.class);
+                    String description = snapshot.child("description").getValue(String.class);
+                    String country = snapshot.child("country").getValue(String.class);
+                    int price = snapshot.child("price").getValue(Integer.class);
+                    int ratingAmount = snapshot.child("ratingAmount").getValue(Integer.class);
+
+                    instance.addWine(name, type, country, rating, price, ratingAmount, id, description);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
+        });
     }
 }
 

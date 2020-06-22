@@ -200,10 +200,14 @@ public class WineActivity extends AppCompatActivity {
 
                                                 Map<String, Object> wines = new HashMap<>();
                                                 drink.setRating((rating/count));
+                                                wines.put("id", drink.getId());
                                                 wines.put("rating", (rating/count));
                                                 wines.put("name", drink.getName());
-                                                wines.put("img", drink.getImg());
+                                                wines.put("country", drink.getCountry());
                                                 wines.put("type", drink.getType());
+                                                wines.put("price", drink.getPrice());
+                                                wines.put("ratingAmount", drink.getRatingAmount());
+                                                wines.put("description", drink.getDescription());
                                                 myRef.child(drink.getName()).setValue(wines);
                                             }
                                         }
