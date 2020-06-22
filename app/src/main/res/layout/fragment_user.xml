@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginEnd="52dp"
-            android:text="Change profile picture" />
+            android:text="@string/title_change_profile_picture" />
 
         <Button
             android:id="@+id/myFavorites"
