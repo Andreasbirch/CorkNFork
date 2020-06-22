@@ -19,10 +19,9 @@
     <ListView
         android:id="@+id/mListViewFav"
         android:layout_width="match_parent"
-        android:layout_height="529dp"
+        android:layout_height="560dp"
         android:layout_below="@+id/titleTextView"
-        android:layout_marginTop="86dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintHorizontal_bias="1.0" />
 
 
