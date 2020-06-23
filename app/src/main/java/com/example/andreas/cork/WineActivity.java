@@ -140,12 +140,15 @@ public class WineActivity extends AppCompatActivity {
         final boolean checked = ((CheckBox) view).isChecked();
         if (view.getId() == checkboxFavorite.getId()){
             Map<String, Object> data = new HashMap<>();
-            data.put("drink", drink);
+            data.put("id", drink.getId());
+            data.put("rating", (drink.getRating()));
             data.put("name", drink.getName());
-            data.put("img", drink.getImg());
-            data.put("rating", drink.getRating());
             data.put("country", drink.getCountry());
             data.put("type", drink.getType());
+            data.put("price", drink.getPrice());
+            data.put("ratingAmount", drink.getRatingAmount());
+            data.put("description", drink.getDescription());
+            data.put("goesWithMeals", drink.getGoesWithMeals());
 
             try {
                 if (checked) {
