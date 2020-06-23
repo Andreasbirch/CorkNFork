@@ -50,6 +50,7 @@
     <string name="toast_drink_removed_from_favorites">Drink fjernet fra favoritter</string>
     <string name="toast_thanks_for_rating">Tak for din bedømmelse!</string>
     <string name="title_we_would_recommend_meal">Vi anbefaler følgende måltider til denne drink</string>
+    <string name="error_cannot_favorite_login">Du kan ikke tilføje drinken til favoritter, da du ikke er logget ind. Venligst log ind og prøv igen</string>
 
 
 

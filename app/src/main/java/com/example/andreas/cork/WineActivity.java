@@ -110,21 +110,25 @@ public class WineActivity extends AppCompatActivity {
             wineVolumeText.setText("75cl");
             wineCountryText.setText(drink.country);
 
-            db.collection("users").document(mAuth.getUid()).collection("favorites").get()
-                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                        @Override
-                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                            if (task.isSuccessful()) {
-                                for (QueryDocumentSnapshot document : task.getResult()) {
-                                    if (document.getId().equals(drink.getName())){
-                                        checkboxFavorite.setChecked(true);
+            try {
+                db.collection("users").document(mAuth.getUid()).collection("favorites").get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    for (QueryDocumentSnapshot document : task.getResult()) {
+                                        if (document.getId().equals(drink.getName())) {
+                                            checkboxFavorite.setChecked(true);
+                                        }
                                     }
+                                } else {
+                                    Log.w(TAG, "Error getting documents.", task.getException());
                                 }
-                            } else {
-                                Log.w(TAG, "Error getting documents.", task.getException());
                             }
-                        }
-                    });
+                        });
+            } catch (NullPointerException e) {
+
+            }
         }
 
 
@@ -143,25 +147,29 @@ public class WineActivity extends AppCompatActivity {
             data.put("country", drink.getCountry());
             data.put("type", drink.getType());
 
-            if (checked){
-                //add fav to firestore
+            try {
+                if (checked) {
+                    //add fav to firestore
 
-                db.collection("users").document(mAuth.getUid()).collection("favorites").document(drink.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        //Toast to user.
-                        Toast.makeText(WineActivity.this, R.string.toast_drink_added_to_favorites, Toast.LENGTH_LONG).show();
-                    }
-                });
-            }
-            else {
-                db.collection("users").document(mAuth.getUid()).collection("favorites").document(drink.getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        //Toast to user.
-                        Toast.makeText(WineActivity.this, R.string.toast_drink_removed_from_favorites, Toast.LENGTH_LONG).show();
-                    }
-                });
+                    db.collection("users").document(mAuth.getUid()).collection("favorites").document(drink.getName()).set(data).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //Toast to user.
+                            Toast.makeText(WineActivity.this, R.string.toast_drink_added_to_favorites, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    db.collection("users").document(mAuth.getUid()).collection("favorites").document(drink.getName()).delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //Toast to user.
+                            Toast.makeText(WineActivity.this, R.string.toast_drink_removed_from_favorites, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
+            } catch (NullPointerException e) {
+                checkboxFavorite.setChecked(false);
+                Toast.makeText(WineActivity.this, R.string.error_cannot_favorite_login, Toast.LENGTH_LONG).show();
             }
         }
     }

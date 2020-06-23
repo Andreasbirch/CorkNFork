@@ -63,6 +63,7 @@
     <string name="toast_drink_added_to_favorites">Drink added to favorites</string>
     <string name="toast_drink_removed_from_favorites">Drink removed from favorites</string>
     <string name="toast_thanks_for_rating">Thanks for rating this drink!</string>
+    <string name="error_cannot_favorite_login">You cannot add this drink to your favorites, because you\'re not logged in. Please log in and try again</string>
 
     <!-- String arrays -->
     <string-array name="select_sort_items">

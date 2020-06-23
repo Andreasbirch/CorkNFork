@@ -97,6 +97,7 @@ public class SettingsFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 isVeganBool = b;
                 PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putBoolean("isVegan", b).commit();
+                isPescetarianSwitch.setChecked(false);
             }
         });
         isPescetarianSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -104,7 +105,7 @@ public class SettingsFragment extends Fragment {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 isPescetarianBool = b;
                 PreferenceManager.getDefaultSharedPreferences(getActivity()).edit().putBoolean("isPescetarian", b).commit();
-
+                isVeganSwitch.setChecked(false);
             }
         });
         isAllergicToShellfishSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
